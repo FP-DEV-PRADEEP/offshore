@@ -1,0 +1,4 @@
+.clientbox{border:1px solid #DFDFDF;box-sizing:border-box;padding:15px 30px 40px 30px;text-align:center;}
+.clientbox img{max-height:120px;}
+.clientbox p{white-space:normal;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;font-family:Lato;font-style:normal;font-weight:normal;font-size:18px;line-height:30px;text-align:center;color:#707070;}
+.clientslogo{height:130px;align-items:center;justify-content:center;display:flex;}

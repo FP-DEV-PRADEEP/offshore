@@ -1,0 +1,12 @@
+.mainBtn{font-family:'Gill Sans';font-style:normal;font-weight:500;font-size:16px;line-height:16px;text-transform:uppercase;background:#0081C8;border-radius:3px;display:inline-block;padding:13px 30px;color:#fff;}
+.mainBtn:hover,.mainBtn.green-btn:hover{background:#ee334e;color:#fff !important;border-color:#ee334e;}
+.mainBtn.border-btn:hover{background:transparent !important;color:#ee334e !important;}
+a.mainBtn.green-btn{font-size:16px;background:#00A651;padding:16px 30px;}
+@media ( max-width:575px){
+    .mainBtn {
+        font-size: 14px !important;
+        line-height: 16px;
+        padding: 12px 25px !important;
+    }
+}
+

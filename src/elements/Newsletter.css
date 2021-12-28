@@ -1,0 +1,24 @@
+.rightbottom{bottom:0;right:0;z-index:-1;}
+.subscribe{position:relative; overflow: hidden;}
+.newsletterbar input{padding:12px 0;height:auto;border:0;border-radius:0;font-size:18px;font-weight:300;}
+.inputBar{position:relative;border-bottom:1px solid #C4C4C4;}
+.inputBar img{position:absolute;top:-50px;right:-233px;max-width:240px;}
+.newsinner{max-width:770px;}
+
+@media ( max-width:1199px){
+    .newsletterbar {
+        max-width: 570px;
+    }
+
+}
+
+@media ( max-width:575px){
+    .newsletterbar {
+        max-width: 80%;
+    }
+    .inputBar img {
+        top: -30px;
+        right: -183px;
+        max-width: 190px;
+    }
+}
