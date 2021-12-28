@@ -9,7 +9,7 @@ function Contact() {
 
   
   const Result = () => {
-      return <div class="mt-3 alert alert-success" role="alert">
+      return <div className="mt-3 alert alert-success" role="alert">
           Thank you for contact us. we will get back to you soon.
       </div>
   }
@@ -175,7 +175,7 @@ function Contact() {
                         </div>
                   <div className="from-group d-flex flex-wrap align-items-center">
                     <div className="captcha-box"></div>
-                    <button class="mainBtn border-0 px-5" type="submit" >Send Us</button>
+                    <button className="mainBtn border-0 px-5" type="submit" >Send Us</button>
                   </div>
                   <div className="form-group">
                     {result ? <Result /> : null}
