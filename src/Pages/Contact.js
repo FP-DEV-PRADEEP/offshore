@@ -4,26 +4,28 @@ import Newsletter from "../elements/Newsletter";
 import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
-//  helmet js
-import { Helmet } from 'react-helmet';
+import {reqHost,reqContact, reqBearer} from '../config/Config';
 
 function Contact() {
 
+  
   const Result = () => {
-    return <div className="mt-3 alert alert-success" role="alert">
-      Thank you for contact us. we will get back to you soon.
-    </div>
+      return <div className="mt-3 alert alert-success" role="alert">
+          Thank you for contact us. we will get back to you soon.
+      </div>
   }
   const [result, showresult] = useState(false);
 
   const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors }
-  } = useForm({
-    defaultValues: { yes_i_understand: false }
+      register,
+      handleSubmit,
+      reset,
+      formState: { errors }
+    } = useForm({
+      defaultValues: { yes_i_understand: false }
   });
+  const apiContact = reqHost + reqContact;
+  const bearer = reqBearer;
 
   // ========= get data function =========
   const [userdata, setuserdata] = useState({
@@ -33,50 +35,48 @@ function Contact() {
     message: "",
   });
   let nameattr, valueattr;
-  let emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const handleInput = (e) => {
-    // console.log(e)
-    nameattr = e.target.name;
-    valueattr = e.target.value;
-    setuserdata({ ...userdata, [nameattr]: valueattr })
+      // console.log(e)
+      nameattr = e.target.name;
+      valueattr = e.target.value;
+      setuserdata({ ...userdata, [nameattr]: valueattr })
   }
 
   const sendEmail = (formData) => {
-    var host = 'http://api.itoffshoresolutions.com/api/email-data';
+    var host = apiContact;
     var reqData = {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer eyJpdiI6Imo3anhyOFlRSm5JVVVDclZxdTF6MkE9PSIsInZhbHVlIjoiK1Z6RmQ1MDJ0MHljSno4bDZRS2FPYUpmOXNuOFMwVEgrWi9HdlhFYUlOQT0iLCJtYWMiOiI4ZWJhZmE5YTRjM2FhNmFhZjI1NTdkNjAxZWU3OTlhMDIxYmJmN2UzMmVmMzQ5MWFlZDhhNjViMjY5ZDZhNTQ4IiwidGFnIjoiIn0=',
-        'content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: userdata.name,
-        email: userdata.email,
-        phone: userdata.phone,
-        message: userdata.message
-      })
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer '+bearer,
+            'content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: userdata.name,
+            email: userdata.email,
+            phone: userdata.phone,
+            message: userdata.message
+        })
     };
     fetch(host, reqData)
-      .then(response => response.json())
-      .then(data => {
-        showresult(true);
-        console.table(data);
-      })
-      .catch(error => {
-        showresult(false);
-        console.table(error);
-      });
+        .then(response => response.json())
+        .then(data => {
+            showresult(true);
+            console.table(data);
+        })
+        .catch(error => {
+            showresult(false);
+            console.table(error);
+        });
     reset();
-    setTimeout(() => { showresult(false); }, 50000);
+    setTimeout(()=>{showresult(false);}, 50000);
+
   }
 
+
+
   return <>
-
-    <Helmet>
-      <title>Contact - Offshore</title>
-    </Helmet>
-
     <Pagecaption subtitle="Contact Us" pagetitle="We'd love to hear from you" />
     <div className="contact">
       <div className="container">
@@ -84,8 +84,7 @@ function Contact() {
           <div className="row">
             <div className="col-lg-5 mb-3 mb-md-0">
               <div className="rightcontact">
-
-                <div className="d-flex align-items-center mb-4">
+                <a href="#">
                   <div className="dIcons location">
                     <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M11 0C8.08369 0.00344047 5.28779 1.16347 3.22564 3.22563C1.16348 5.28778 0.00345217 8.08367 1.17029e-05 11C-0.00348119 13.3832 0.774992 15.7018 2.21601 17.6C2.21601 17.6 2.51601 17.995 2.56501 18.052L11 28L19.439 18.047C19.483 17.994 19.784 17.6 19.784 17.6L19.785 17.597C21.2253 15.6996 22.0034 13.3821 22 11C21.9966 8.08367 20.8365 5.28778 18.7744 3.22563C16.7122 1.16347 13.9163 0.00344047 11 0ZM11 15C10.2089 15 9.43553 14.7654 8.77773 14.3259C8.11993 13.8864 7.60724 13.2616 7.30449 12.5307C7.00174 11.7998 6.92253 10.9956 7.07687 10.2196C7.23121 9.44372 7.61217 8.73098 8.17158 8.17157C8.73099 7.61216 9.44373 7.2312 10.2197 7.07686C10.9956 6.92252 11.7998 7.00173 12.5307 7.30448C13.2616 7.60723 13.8864 8.11992 14.3259 8.77772C14.7654 9.43552 15 10.2089 15 11C14.9987 12.0605 14.5768 13.0771 13.827 13.827C13.0771 14.5768 12.0605 14.9987 11 15Z" fill="white" />
@@ -93,12 +92,11 @@ function Contact() {
                   </div>
                   <div className="dt-link">
                     <h2>Location</h2>
-                    <a href="#"><p>D-105 B, Devi Marg, Bani Park, Jaipur, Rajasthan, India 302016</p></a>
+                    <p>D-105 B, Devi Marg, Bani Park,
+                      Jaipur, Rajasthan, India 302016</p>
                   </div>
-                </div>
-
-
-                <div className="d-flex align-items-center mb-4">
+                </a>
+                <a href="mailto:info@futureprofilez.com">
                   <div className="dIcons email">
                     <svg width="29" height="23" viewBox="0 0 29 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M28.3077 5.96762V18.5769C28.3077 19.75 27.8417 20.875 27.0122 21.7045C26.1827 22.534 25.0577 23 23.8846 23H4.42308C3.25 23 2.12498 22.534 1.29549 21.7045C0.466001 20.875 0 19.75 0 18.5769V5.96762L13.7045 14.0318C13.8406 14.1121 13.9958 14.1544 14.1538 14.1544C14.3119 14.1544 14.4671 14.1121 14.6032 14.0318L28.3077 5.96762ZM23.8846 5.47624e-08C24.9729 -0.000171113 26.0231 0.400919 26.8343 1.12654C27.6454 1.85216 28.1606 2.85137 28.2812 3.933L14.1538 12.2431L0.0265386 3.933C0.147126 2.85137 0.662265 1.85216 1.47341 1.12654C2.28455 0.400919 3.33474 -0.000171113 4.42308 5.47624e-08H23.8846Z" fill="white" />
@@ -106,13 +104,10 @@ function Contact() {
                   </div>
                   <div className="dt-link">
                     <h2>Email Address</h2>
-                    <a href="mailto:info@futureprofilez.com"> <p>info@futureprofilez.com</p></a>
+                    <p>info@futureprofilez.com</p>
                   </div>
-                </div>
-
-
-
-                <div className="d-flex align-items-center mb-4">
+                </a>
+                <a href="tel:+919983333334">
                   <div className="dIcons number">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M16.5 9C17.6935 9 18.8381 9.4741 19.682 10.318C20.5259 11.1619 21 12.3065 21 13.5C21 13.8978 21.158 14.2794 21.4393 14.5607C21.7206 14.842 22.1022 15 22.5 15C22.8978 15 23.2794 14.842 23.5607 14.5607C23.842 14.2794 24 13.8978 24 13.5C24 11.5109 23.2098 9.60322 21.8033 8.1967C20.3968 6.79018 18.4891 6 16.5 6C16.1022 6 15.7206 6.15804 15.4393 6.43934C15.158 6.72064 15 7.10217 15 7.5C15 7.89782 15.158 8.27935 15.4393 8.56066C15.7206 8.84196 16.1022 9 16.5 9Z" fill="white" />
@@ -121,14 +116,9 @@ function Contact() {
                   </div>
                   <div className="dt-link">
                     <h2>Phone Number</h2>
-                    <a href="tel:+919983333334">
-                      <p>+91-9983333334</p>
-                    </a>
+                    <p>+91-9983333334</p>
                   </div>
-                </div>
-
-
-
+                </a>
               </div>
             </div>
 
@@ -137,55 +127,55 @@ function Contact() {
                 <h3>Write Us</h3>
                 <form onSubmit={handleSubmit(sendEmail)} >
                   <div className="from-group mb-3">
-                    <input
-                      {...register("name", { required: true })}
-                      onChange={handleInput}
-                      name="name" type="text" className="form-control" placeholder="Your name" />
-
-                    {errors.name && (
-                      <div className="invalid-feedback d-block">
-                        Please fill your Full Name
-                      </div>
-                    )}
-
+                    <input 
+                    {...register("name", { required: true })}
+                    onChange={handleInput}
+                    name="name" type="text" className="form-control" placeholder="Your name" />
+                  
+                  {errors.name && (
+                            <div className="invalid-feedback d-block">
+                               Please fill your Full Name
+                            </div>
+                        )}
+                  
                   </div>
                   <div className="from-group mb-3">
-                    <input
-                      {...register("phone", { required: true, minLength: 14, minLength: 8 })}
-                      onChange={handleInput}
-                      name="phone" type="tel" className="form-control" placeholder="Phone Number" />
+                    <input 
+                    {...register("phone", { required: true, minLength:14, minLength:8  })}
+                    onChange={handleInput}
+                    name="phone" type="tel" className="form-control" placeholder="Phone Number" />
                     {errors.phone && (
-                      <div className="invalid-feedback d-block mb-3">
-                        Please enter your valid phonenumber
-                      </div>
-                    )}
+                            <div className="invalid-feedback d-block mb-3">
+                               Please enter your valid phonenumber
+                            </div>
+                        )}
                   </div>
 
                   <div className="from-group mb-3">
                     <input
-                      {...register("email", { required: true, pattern: emailPattern })}
-                      onChange={handleInput}
-                      name="email" type="text" className="form-control" placeholder="Email" />
+                    {...register("email", { required: true, pattern: emailPattern })}
+                    onChange={handleInput}
+                    name="email" type="text" className="form-control" placeholder="Email" />
                     {errors.email && (
-                      <div className="invalid-feedback d-block mb-3">
-                        Please enter your valid email address
-                      </div>
-                    )}
+                            <div className="invalid-feedback d-block mb-3">
+                               Please enter your valid email address
+                            </div>
+                        )}
                   </div>
 
                   <div className="from-group mb-3">
                     <textarea
-                      {...register("message", { required: true, minLength: { value: 20 } })}
-                      onChange={handleInput}
-                      name="message" className="form-control" placeholder="Message" />
+                    {...register("message", { required: true, minLength: { value: 20} })}
+                    onChange={handleInput}
+                    name="message" className="form-control" placeholder="Message" />
 
                     {errors.message && (
-                      <div className="invalid-feedback d-block">
-                        Min 30 characters required.
-                      </div>
-                    )}
-
-                  </div>
+                          <div className="invalid-feedback d-block">
+                          Min 30 characters required.
+                       </div>
+                        )}
+                        
+                        </div>
                   <div className="from-group d-flex flex-wrap align-items-center">
                     <div className="captcha-box"></div>
                     <button className="mainBtn border-0 px-5" type="submit" >Send Us</button>
