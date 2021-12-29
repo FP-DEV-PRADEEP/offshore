@@ -10,7 +10,7 @@ function Client() {
 
     return <>
         {clientslist.map(client => (
-            <li><img src={client.imageurl}   /></li>
+            <li key={client.id} ><img src={client.imageurl} /></li>
         ))}
     </>
 }

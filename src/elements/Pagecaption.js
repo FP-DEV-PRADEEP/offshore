@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 //  get page name
 function Pagecaption(props) {

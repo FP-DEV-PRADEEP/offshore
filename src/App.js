@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
-import { BrowserRouter as Router, Switch, Route, Link, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import './App.css'
 
@@ -19,7 +19,8 @@ import { useState } from 'react';
 import Preload from './elements/Preload';
 import Privacypolicy from './Pages/Privacypolicy';
 import Terms from './Pages/Terms';
- 
+//  helmet js
+import { Helmet } from 'react-helmet';
 
 function App() {
     // preloader
@@ -28,10 +29,14 @@ function App() {
         setpreload(false);
     }, 1500); // <-- time in milliseconds
 
-    
     return (
         <div className="App"   >
-            {preload ? <Preload /> :
+            <Helmet>
+                <title>Offshore</title>
+                <meta name="description" content="App Description" />
+            </Helmet>
+
+            {preload ? <Preload /> : 
                 <Router>
                     <Header />
                     {/* switch cases */}

@@ -4,6 +4,8 @@ import Pagecaption from "../elements/Pagecaption";
 import { Link } from 'react-router-dom';
 import './Ourclient.css'
 import ClientsData from './Clientsdata';
+//  helmet js
+import { Helmet } from 'react-helmet';
 
 function Ourclient() {
     const clients = ClientsData.map(cleints => {
@@ -27,9 +29,10 @@ function Ourclient() {
 
     return (
         <>
+         <Helmet>
+      <title>Our Client - Offshore</title>
+    </Helmet>
             <Pagecaption subtitle="Our Client" pagetitle="All Hi5 clients are 100% satisfied" />
-
-
             <div className="py-padding">
                 <div className="container">
                     <div className="row">

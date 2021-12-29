@@ -1,8 +1,15 @@
 import Pagecaption from "../elements/Pagecaption";
 import Servicebox from "../elements/Servicebox";
+//  helmet js
+import { Helmet } from 'react-helmet';
+
+
 
 function Service() {
   return <>
+   <Helmet>
+      <title>Service - Offshore</title>
+    </Helmet>
     <Pagecaption subtitle={"Services"} pagetitle={"We Are Nothing Like Your Run-Of-The-Mill Outsourcing IT Agency"} />
     <div className="py-padding">
       <div className="container">

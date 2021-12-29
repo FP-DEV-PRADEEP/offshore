@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import Clientsdata from './Clientsdata';
 import Pagecaption from "../elements/Pagecaption";
 import Button from '../elements/Button';
-import { useState } from 'react';
+//  helmet js
+import { Helmet } from 'react-helmet';
 
 function Clientdetail() {
 
@@ -14,13 +15,15 @@ function Clientdetail() {
 
     
     return <>
+    
+
         <Pagecaption addiclass={'onlypagination'} subtitle="Our Client" />
         <div className="py-5">
             <div className="container">
 
                 <div className="before change-title">
                     <div className="bimg-left">
-                        <img src={thisclient.beforesiteimg} className='img-fluid' alt="images" />
+                        <img  alt="img"  src={thisclient.beforesiteimg} className='img-fluid' alt="images" />
                     </div>
                     <div className="chnages-title">
                         <h2>Before</h2>
@@ -32,7 +35,7 @@ function Clientdetail() {
                         <h2>After</h2>
                     </div>
                     <div className="bimg-left">
-                        <img src={thisclient.aftersiteimg} className='img-fluid' alt="images" />
+                        <img  alt="img"  src={thisclient.aftersiteimg} className='img-fluid' alt="images" />
                     </div>
                 </div>
 

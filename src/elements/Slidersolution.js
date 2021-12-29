@@ -25,7 +25,7 @@ function Slidersolution() {
                     </div>
                 </div>
                 <div className="rightSlide">
-                    <img src={window.location.origin + '/img/solution.png'} className="img-fluid m-auto d-table" />
+                    <img alt="img" src={window.location.origin + '/img/solution.png'} className="img-fluid m-auto d-table" />
                 </div>
             </div>
         </Slider>

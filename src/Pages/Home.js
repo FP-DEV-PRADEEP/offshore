@@ -3,16 +3,22 @@ import Hiredev from "../elements/Hiredev";
 import Newsletter from "../elements/Newsletter";
 import Slidersolution from "../elements/Slidersolution";
 import { BrowserRouter as  Switch, Route, NavLink } from 'react-router-dom';
+//  helmet js
+import { Helmet } from 'react-helmet';
+
 function Home(props) {
     return <>
+    <Helmet>
+      <title>Offshore</title>
+    </Helmet>
 
         <Hero />
         <div className="certified-devs py-padding">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5">
-                        <img src={window.location.origin + '/img/certified-dev.png'} className="img-fluid m-auto d-table" />
-                    </div>
+                        <img alt="img" src={window.location.origin + '/img/certified-dev.png'} className="img-fluid m-auto d-table" />
+                    </div> 
                     <div className="col-lg-7">
                         <div className="sec-title">
                             <h2>Hire Certified Developers</h2>
@@ -23,7 +29,7 @@ function Home(props) {
                             <div className="serDev webdev">
                                 <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/webdev.svg'} className="img-fluid" />
+                                        <img  alt="img"  src={window.location.origin + '/img/webdev.svg'} className="img-fluid" />
                                     </div>
                                     Web Development</div>
                                 <div className="toogletip">
@@ -52,7 +58,7 @@ function Home(props) {
                             <div className="serDev phpdev">
                                 <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/phpdev.svg'} className="img-fluid" />
+                                        <img alt="img" src={window.location.origin + '/img/phpdev.svg'} className="img-fluid" />
                                     </div>
                                     PHP Development</div>
                                 <div className="toogletip">
@@ -76,7 +82,7 @@ function Home(props) {
                             <div className="serDev mobiledev">
                                 <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/mobiledev.svg'} className="img-fluid" />
+                                        <img alt="img" src={window.location.origin + '/img/mobiledev.svg'} className="img-fluid" />
                                     </div>
                                     Mobile Development</div>
 
@@ -102,7 +108,7 @@ function Home(props) {
                             <div className="serDev netdev">
                                 <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/netdev.svg'} className="img-fluid" />
+                                        <img alt="img" src={window.location.origin + '/img/netdev.svg'} className="img-fluid" />
                                     </div>
                                     .Net Development</div>
 
@@ -130,7 +136,7 @@ function Home(props) {
                             <div className="serDev marketdev">
                                 <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/marketdev.svg'} className="img-fluid" />
+                                        <img alt="img" src={window.location.origin + '/img/marketdev.svg'} className="img-fluid" />
                                     </div>
                                     Online Market</div>
                                 <div className="toogletip">
@@ -156,7 +162,7 @@ function Home(props) {
 
         {/* process */}
         <div className="process blue-bg py-padding position-relative ">
-            <img src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
+            <img  alt="img"  src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
             <div className="container">
                 <div className="process-sec">
                     <div className="proleft">
@@ -180,7 +186,7 @@ function Home(props) {
 
                     </div>
                     <div className="proright">
-                        <img src={window.location.origin + '/img/proccess.png'} className="img-fluid m-auto d-table" />
+                        <img alt="img" src={window.location.origin + '/img/proccess.png'} className="img-fluid m-auto d-table" />
                     </div>
                 </div>
             </div>
