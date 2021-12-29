@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
+import {reqHost,reqContact, reqSubscribe, reqBearer} from '../config/Config';
 
 function Heroform(props) {
 
@@ -31,21 +32,22 @@ function Heroform(props) {
     });
 
     let nameattr, valueattr;
-    let emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const handleInput = (e) => {
         // console.log(e)
         nameattr = e.target.name;
         valueattr = e.target.value;
         setuserdata({ ...userdata, [nameattr]: valueattr })
     }
-
+    const apiContact = reqHost + reqContact;
+    const bearer = reqBearer;
     // ========= send email =========
     const sendEmail = (formData) => {
-        var host = 'http://api.itoffshoresolutions.com/api/email-data';
+        var host = apiContact;
         var reqData = {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer eyJpdiI6Imo3anhyOFlRSm5JVVVDclZxdTF6MkE9PSIsInZhbHVlIjoiK1Z6RmQ1MDJ0MHljSno4bDZRS2FPYUpmOXNuOFMwVEgrWi9HdlhFYUlOQT0iLCJtYWMiOiI4ZWJhZmE5YTRjM2FhNmFhZjI1NTdkNjAxZWU3OTlhMDIxYmJmN2UzMmVmMzQ5MWFlZDhhNjViMjY5ZDZhNTQ4IiwidGFnIjoiIn0=',
+                'Authorization': 'Bearer '+bearer,
                 'content-Type': 'application/json'
             },
             body: JSON.stringify({
