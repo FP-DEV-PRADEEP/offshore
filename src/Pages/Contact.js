@@ -4,7 +4,7 @@ import Newsletter from "../elements/Newsletter";
 import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
-import {reqHost,reqContact, reqBearer} from '../config/Config';
+import { reqHost, reqContact, reqBearer } from '../config/Config';
 
 //  helmet js
 import { Helmet } from 'react-helmet';
@@ -12,19 +12,19 @@ import { Helmet } from 'react-helmet';
 function Contact() {
 
   const Result = () => {
-      return <div className="mt-3 alert alert-success" role="alert">
-          Thank you for contact us. we will get back to you soon.
-      </div>
+    return <div className="mt-3 alert alert-success" role="alert">
+      Thank you for contact us. we will get back to you soon.
+    </div>
   }
   const [result, showresult] = useState(false);
 
   const {
-      register,
-      handleSubmit,
-      reset,
-      formState: { errors }
-    } = useForm({
-      defaultValues: { yes_i_understand: false }
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm({
+    defaultValues: { yes_i_understand: false }
   });
   const apiContact = reqHost + reqContact;
   const bearer = reqBearer;
@@ -40,51 +40,55 @@ function Contact() {
   let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const handleInput = (e) => {
-      // console.log(e)
-      nameattr = e.target.name;
-      valueattr = e.target.value;
-      setuserdata({ ...userdata, [nameattr]: valueattr })
+    // console.log(e)
+    nameattr = e.target.name;
+    valueattr = e.target.value;
+    setuserdata({ ...userdata, [nameattr]: valueattr })
   }
 
   const sendEmail = (formData) => {
     var host = apiContact;
     var reqData = {
-        method: 'POST',
-        headers: {
-            'Authorization': 'Bearer '+bearer,
-            'content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: userdata.name,
-            email: userdata.email,
-            phone: userdata.phone,
-            message: userdata.message
-        })
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + bearer,
+        'content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: userdata.name,
+        email: userdata.email,
+        phone: userdata.phone,
+        message: userdata.message
+      })
     };
     fetch(host, reqData)
-        .then(response => response.json())
-        .then(data => {
-            showresult(true);
-            console.table(data);
-        })
-        .catch(error => {
-            showresult(false);
-            console.table(error);
-        });
+      .then(response => response.json())
+      .then(data => {
+        showresult(true);
+        console.table(data);
+      })
+      .catch(error => {
+        showresult(false);
+        console.table(error);
+      });
     reset();
-    setTimeout(()=>{showresult(false);}, 50000);
+    setTimeout(() => { showresult(false); }, 50000);
 
   }
 
 
 
   return <>
-  
-<Helmet>
-      <title>Contact - Offshore</title>
+
+    <Helmet>
+      <title>Contact Us - Offshore</title>
+      <meta name="title" content="Contact US | Hire Dedicated Web Developers India" />
+      <meta name="description" content="Hire Dedicated Developers From India as virtual employees. We provide you best developers for your requirements which are less in cost and complete tasks on time with expertise Web Development, IoT services, Online IT Services, AR/VR Services, PHP Development, Mobile Development, .Net Development." />
     </Helmet>
-    <Pagecaption subtitle="Contact Us" pagetitle="We'd love to hear from you" />
-    <div className="contact">
+
+
+    {/* <Pagecaption subtitle="Contact Us" pagetitle="We'd love to hear from you" /> */}
+    <div className="contact pt-3">
       <div className="container">
         <div className="contactfrom">
           <div className="row">
@@ -133,55 +137,55 @@ function Contact() {
                 <h3>Write Us</h3>
                 <form onSubmit={handleSubmit(sendEmail)} >
                   <div className="from-group mb-3">
-                    <input 
-                    {...register("name", { required: true })}
-                    onChange={handleInput}
-                    name="name" type="text" className="form-control" placeholder="Your name" />
-                  
-                  {errors.name && (
-                            <div className="invalid-feedback d-block">
-                               Please fill your Full Name
-                            </div>
-                        )}
-                  
+                    <input
+                      {...register("name", { required: true })}
+                      onChange={handleInput}
+                      name="name" type="text" className="form-control" placeholder="Your name" />
+
+                    {errors.name && (
+                      <div className="invalid-feedback d-block">
+                        Please fill your Full Name
+                      </div>
+                    )}
+
                   </div>
                   <div className="from-group mb-3">
-                    <input 
-                    {...register("phone", { required: true, minLength:14, minLength:8  })}
-                    onChange={handleInput}
-                    name="phone" type="tel" className="form-control" placeholder="Phone Number" />
+                    <input
+                      {...register("phone", { required: true, minLength: 14, minLength: 8 })}
+                      onChange={handleInput}
+                      name="phone" type="tel" className="form-control" placeholder="Phone Number" />
                     {errors.phone && (
-                            <div className="invalid-feedback d-block mb-3">
-                               Please enter your valid phonenumber
-                            </div>
-                        )}
+                      <div className="invalid-feedback d-block mb-3">
+                        Please enter your valid phonenumber
+                      </div>
+                    )}
                   </div>
 
                   <div className="from-group mb-3">
                     <input
-                    {...register("email", { required: true, pattern: emailPattern })}
-                    onChange={handleInput}
-                    name="email" type="text" className="form-control" placeholder="Email" />
+                      {...register("email", { required: true, pattern: emailPattern })}
+                      onChange={handleInput}
+                      name="email" type="text" className="form-control" placeholder="Email" />
                     {errors.email && (
-                            <div className="invalid-feedback d-block mb-3">
-                               Please enter your valid email address
-                            </div>
-                        )}
+                      <div className="invalid-feedback d-block mb-3">
+                        Please enter your valid email address
+                      </div>
+                    )}
                   </div>
 
                   <div className="from-group mb-3">
                     <textarea
-                    {...register("message", { required: true, minLength: { value: 20} })}
-                    onChange={handleInput}
-                    name="message" className="form-control" placeholder="Message" />
+                      {...register("message", { required: true, minLength: { value: 20 } })}
+                      onChange={handleInput}
+                      name="message" className="form-control" placeholder="Message" />
 
                     {errors.message && (
-                          <div className="invalid-feedback d-block">
-                          Min 30 characters required.
-                       </div>
-                        )}
-                        
-                        </div>
+                      <div className="invalid-feedback d-block">
+                        Min 30 characters required.
+                      </div>
+                    )}
+
+                  </div>
                   <div className="from-group d-flex flex-wrap align-items-center">
                     <div className="captcha-box"></div>
                     <button className="mainBtn border-0 px-5" type="submit" >Send Us</button>
