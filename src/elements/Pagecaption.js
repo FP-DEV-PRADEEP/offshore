@@ -7,18 +7,18 @@ const currentlocation = location.pathname.slice(1)
 
     return <>
         <div className={`innerbanner position-relative ${props.addiclass}`}  >
-        <img src={'../img/innerbg.svg'} class="img-fluid bg-img rightbottom" alt="image" />
+        <img src={'../img/innerbg.svg'} className="img-fluid bg-img rightbottom" alt="image" />
             <div className="container">
                 <div className="sec-title">
                     <h2>{props.subtitle}</h2>
                     <h3>{props.pagetitle}</h3>
                 </div>
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item">
                             <NavLink to="/">Home</NavLink>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">{currentlocation}</li>
+                        <li className="breadcrumb-item active" aria-current="page">{currentlocation}</li>
                     </ol>
                 </nav>
             </div>
