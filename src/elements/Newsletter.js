@@ -3,6 +3,7 @@ import { React } from "react";
 import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 import './Newsletter.css'
+import {reqHost, reqSubscribe, reqBearer} from '../config/Config';
 
 function Newsletter(props) {
     const Result = () => {
@@ -23,40 +24,47 @@ function Newsletter(props) {
         defaultValues: { yes_i_understand: false }
     });
 
-    const sendEmail = (formData) => {
-        emailjs
+    // ========= get data function =========
+    const [userdata, setuserdata] = useState({
+        email: "",
+    });
+    let nameattr, valueattr;
+    let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    const handleInput = (e) => {
+        // console.log(e)
+        nameattr = e.target.name;
+        valueattr = e.target.value;
+        setuserdata({ ...userdata, [nameattr]: valueattr })
+    }
 
-            // .send(
-            //     'service_jnjzp9n', 'template_pprcpg7',
-            //     formData,
-            //     'user_itVge450EwlJRH3TFjFlU'
-            // )
+    const apiSubscribe = reqHost + reqSubscribe;
+    const bearer = reqBearer;
 
-            .send(
-                "service_5qjj256",
-                "template_loiw1nh",
-                formData,
-                "user_9vGftkoNZiOYOvLBTZCvP"
-            )
-
-
-            .then(
-                (result) => {
-                    console.log(result.text);
-                },
-                (error) => {
-                    console.log(error.text);
-                }
-            );
-
+    const subscribe = (formData) => {
+        var host = apiSubscribe;
+        var reqData = {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer '+bearer,
+                'content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: userdata.email
+            })
+        };
+        fetch(host, reqData)
+            .then(response => response.json())
+            .then(data => {
+                showresult(true);
+                // console.table(data);
+            })
+            .catch(error => {
+                showresult(false);
+                // console.table(error);
+            });
         reset();
-        setTimeout(() => {
-            showresult(true);
-        }, 500);
-
-        setTimeout(() => {
-            showresult(false);
-        }, 4000);
+        setTimeout(()=>{showresult(false);}, 50000);
     };
     
     return (
@@ -70,22 +78,21 @@ function Newsletter(props) {
                         <h2>Subscribe</h2>
                         <h3>Our clients describe us as a product team which creates amazing Projects</h3>
                         <p>Submit your email address and subscribe to our newsletter to be on the up and up.</p>
-                        <form onSubmit={handleSubmit(sendEmail)}>
+                        <form onSubmit={handleSubmit(subscribe)}>
                             <div className="newsletterbar">
                                 <div className="inputBar mt-3 mb-4 mb-lg-5">
                                     <input 
-                                    {...register("email", { required: "email is Required", minLength: { value:4 } })}
-                                    name="email" type="text" placeholder="mail.name@gmail.com" class="form-control" />
-                                    
-                          
-                        
+                                    {...register("email", { required: true, pattern:emailPattern })}
+                                    name="email" type="email" placeholder="name@gmail.com" class="form-control"
+                                    onChange={handleInput}
+                                    />
                                     <img src={window.location.origin + '/img/pen.svg'} class="img-fluid m-auto d-table" />
                                 </div>
                                 {errors.email && (
-                            <div className="invalid-feedback d-block mb-3">
-                               Please enter your valid email address
-                            </div>
-                        )}
+                                    <div className="invalid-feedback d-block mb-3">
+                                    Please enter your valid email address
+                                    </div>
+                                )}
                                 
                                 <button class="mainBtn border-0">Subscribe</button>
                                 <div className="form-group">

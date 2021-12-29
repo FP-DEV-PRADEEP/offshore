@@ -4,7 +4,7 @@ import Newsletter from "../elements/Newsletter";
 import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
-import {reqHost,reqContact, reqSubscribe, reqBearer} from '../config/Config';
+import {reqHost,reqContact, reqBearer} from '../config/Config';
 
 function Contact() {
 
