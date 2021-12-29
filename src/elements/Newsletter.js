@@ -6,7 +6,7 @@ import './Newsletter.css'
 
 function Newsletter(props) {
     const Result = () => {
-        return <div class="mt-3 alert alert-success" role="alert">
+        return <div className="mt-3 alert alert-success" role="alert">
             Thank you for subscribe. we will get back to you soon.
         </div>
     }
@@ -63,7 +63,7 @@ function Newsletter(props) {
         <>
             {/* subscribe */}
             <div className="subscribe py-padding">
-                <img src={window.location.origin + '/img/newsletterbg.svg'} class="bg-img rightbottom img-fluid m-auto d-table" />
+                <img src={window.location.origin + '/img/newsletterbg.svg'} className="bg-img rightbottom img-fluid m-auto d-table" />
 
                 <div className="container">
                     <div className="sec-title newsinner">
@@ -75,11 +75,11 @@ function Newsletter(props) {
                                 <div className="inputBar mt-3 mb-4 mb-lg-5">
                                     <input 
                                     {...register("email", { required: "email is Required", minLength: { value:4 } })}
-                                    name="email" type="text" placeholder="mail.name@gmail.com" class="form-control" />
+                                    name="email" type="text" placeholder="mail.name@gmail.com" className="form-control" />
                                     
                           
                         
-                                    <img src={window.location.origin + '/img/pen.svg'} class="img-fluid m-auto d-table" />
+                                    <img src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
                                 </div>
                                 {errors.email && (
                             <div className="invalid-feedback d-block mb-3">
@@ -87,7 +87,7 @@ function Newsletter(props) {
                             </div>
                         )}
                                 
-                                <button class="mainBtn border-0">Subscribe</button>
+                                <button className="mainBtn border-0">Subscribe</button>
                                 <div className="form-group">
                                     {result ? <Result /> : null}
                                 </div>

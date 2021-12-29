@@ -1,30 +1,29 @@
-import Button from "../elements/Button";
 import Hero from "../elements/Hero";
 import Hiredev from "../elements/Hiredev";
 import Newsletter from "../elements/Newsletter";
 import Slidersolution from "../elements/Slidersolution";
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as  Switch, Route, NavLink } from 'react-router-dom';
 function Home(props) {
     return <>
 
         <Hero />
-        <div class="certified-devs py-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <img src={window.location.origin + '/img/certified-dev.png'} class="img-fluid m-auto d-table" />
+        <div className="certified-devs py-padding">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-5">
+                        <img src={window.location.origin + '/img/certified-dev.png'} className="img-fluid m-auto d-table" />
                     </div>
-                    <div class="col-lg-7">
-                        <div class="sec-title">
+                    <div className="col-lg-7">
+                        <div className="sec-title">
                             <h2>Hire Certified Developers</h2>
                             <h3>Hire Developers For Website & Mobile </h3>
                             <p>At Offshore IT Team Solution, our dedicated team of programmers, coders, & digital marketing gurus work collaboratively to offer every web/mobile development service at highly affordable rates. Here’s just a glimpse of what we do:</p>
                         </div>
-                        <div class="dev-services">
+                        <div className="dev-services">
                             <div className="serDev webdev">
-                                <div class="dev-title">
+                                <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/webdev.svg'} class="img-fluid" />
+                                        <img src={window.location.origin + '/img/webdev.svg'} className="img-fluid" />
                                     </div>
                                     Web Development</div>
                                 <div className="toogletip">
@@ -34,7 +33,7 @@ function Home(props) {
                                         <circle cx="2.5" cy="28.5" r="2.5" fill="#DFDFDF" />
                                     </svg>
                                 </div>
-                                <div class="tooltip-menu">
+                                <div className="tooltip-menu">
                                     <ul>
                                         <li><a href="#">Wordpress</a></li>
                                         <li><a href="#">Shopify</a></li>
@@ -51,9 +50,9 @@ function Home(props) {
                             </div>
 
                             <div className="serDev phpdev">
-                                <div class="dev-title">
+                                <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/phpdev.svg'} class="img-fluid" />
+                                        <img src={window.location.origin + '/img/phpdev.svg'} className="img-fluid" />
                                     </div>
                                     PHP Development</div>
                                 <div className="toogletip">
@@ -63,7 +62,7 @@ function Home(props) {
                                         <circle cx="2.5" cy="28.5" r="2.5" fill="#DFDFDF" />
                                     </svg>
                                 </div>
-                                <div class="tooltip-menu">
+                                <div className="tooltip-menu">
                                     <ul>
                                         <li><a href="#">CakePHP</a></li>
                                         <li><a href="#">CodeIgniter</a></li>
@@ -75,9 +74,9 @@ function Home(props) {
                                 </div>
                             </div>
                             <div className="serDev mobiledev">
-                                <div class="dev-title">
+                                <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/mobiledev.svg'} class="img-fluid" />
+                                        <img src={window.location.origin + '/img/mobiledev.svg'} className="img-fluid" />
                                     </div>
                                     Mobile Development</div>
 
@@ -88,7 +87,7 @@ function Home(props) {
                                         <circle cx="2.5" cy="28.5" r="2.5" fill="#DFDFDF" />
                                     </svg>
                                 </div>
-                                <div class="tooltip-menu">
+                                <div className="tooltip-menu">
                                     <ul>
                                         <li><a href="#">Android</a></li>
                                         <li><a href="#">iOS</a></li>
@@ -101,9 +100,9 @@ function Home(props) {
                             </div>
 
                             <div className="serDev netdev">
-                                <div class="dev-title">
+                                <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/netdev.svg'} class="img-fluid" />
+                                        <img src={window.location.origin + '/img/netdev.svg'} className="img-fluid" />
                                     </div>
                                     .Net Development</div>
 
@@ -114,7 +113,7 @@ function Home(props) {
                                         <circle cx="2.5" cy="28.5" r="2.5" fill="#DFDFDF" />
                                     </svg>
                                 </div>
-                                <div class="tooltip-menu">
+                                <div className="tooltip-menu">
                                     <ul>
                                         <li><a href="#"> VB.NET</a></li>
                                         <li><a href="#">Xamarin</a></li>
@@ -129,9 +128,9 @@ function Home(props) {
                                 </div>
                             </div>
                             <div className="serDev marketdev">
-                                <div class="dev-title">
+                                <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img src={window.location.origin + '/img/marketdev.svg'} class="img-fluid" />
+                                        <img src={window.location.origin + '/img/marketdev.svg'} className="img-fluid" />
                                     </div>
                                     Online Market</div>
                                 <div className="toogletip">
@@ -141,7 +140,7 @@ function Home(props) {
                                         <circle cx="2.5" cy="28.5" r="2.5" fill="#DFDFDF" />
                                     </svg>
                                 </div>
-                                <div class="tooltip-menu">
+                                <div className="tooltip-menu">
                                     <ul>
                                         <li><a href="#">Shopify</a></li>
                                         <li><a href="#">Ruby on Rail</a></li>
@@ -157,7 +156,7 @@ function Home(props) {
 
         {/* process */}
         <div className="process blue-bg py-padding position-relative ">
-            <img src="./img/topwave.png" class="manage-bar img-fluid" alt="images" />
+            <img src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
             <div className="container">
                 <div className="process-sec">
                     <div className="proleft">
@@ -181,7 +180,7 @@ function Home(props) {
 
                     </div>
                     <div className="proright">
-                        <img src={window.location.origin + '/img/proccess.png'} class="img-fluid m-auto d-table" />
+                        <img src={window.location.origin + '/img/proccess.png'} className="img-fluid m-auto d-table" />
                     </div>
                 </div>
             </div>
@@ -223,7 +222,7 @@ function Home(props) {
                     </div>
                 </div>
 
-                <NavLink class="mainBtn border-btn d-table m-auto"  to="/services">Know More</NavLink>
+                <NavLink className="mainBtn border-btn d-table m-auto"  to="/services">Know More</NavLink>
             </div>
         </div>
 
@@ -243,7 +242,7 @@ function Home(props) {
                             <h2>Offshore IT Staffing</h2>
                             <h3>A leading offshore staffing IT solution provider since 2008</h3>
                             <p>Some metrics play an essential role to measure the pulse of a company’s customer service efficiency, while others are more evaluating if a brand has a customer-centric approach. Our customer dashboard will examine this second type of metrics.</p>
-                            <NavLink class="mainBtn mt-4 mt-lg-5"  to="/services">Learn More</NavLink>
+                            <NavLink className="mainBtn mt-4 mt-lg-5"  to="/services">Learn More</NavLink>
                         </div>
                     </div>
                     <div className="col-lg-6 ps-lg-5">
