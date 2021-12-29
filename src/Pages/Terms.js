@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 
 function Terms() {
   return <>
-   <Helmet>
+    <Helmet>
       <title>Terms & Condition - Offshore</title>
     </Helmet>
     <Pagecaption subtitle="Terms & Condition" pagetitle="Terms & Condition" />

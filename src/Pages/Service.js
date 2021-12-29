@@ -7,9 +7,13 @@ import { Helmet } from 'react-helmet';
 
 function Service() {
   return <>
-   <Helmet>
+    <Helmet>
       <title>Service - Offshore</title>
+      <meta name="title" content="Hire Dedicated Developers | IT Offshore Solutions India" />
+      <meta name="description" content=" Are you looking for an Expert IT Developer From India? We Provide IT Offshore Solutions For Our Clients. Hire Dedicated Developers as Virtual Employees with Expertise in Custom Web Development, Digital Marketing and More at reasonable prices." />
     </Helmet>
+
+
     <Pagecaption subtitle={"Services"} pagetitle={"We Are Nothing Like Your Run-Of-The-Mill Outsourcing IT Agency"} />
     <div className="py-padding">
       <div className="container">
@@ -27,7 +31,7 @@ function Service() {
           technologies & market trends to bring you an IT experience 
           that focuses on project scalability and affordability. 
           The service list includes:"
-          servserial="1"
+            servserial="1"
           >
             <ul>
               <li>Wordpress</li>
@@ -41,7 +45,7 @@ function Service() {
 
           {/* service box */}
           <Servicebox
-          servserial="2"
+            servserial="2"
             img="./img/service-2.png"
             title="IoT Services"
             description="Harness the power of AI technology to augment your productivity and revenue streams through our meticulously crafted Internet of Things (IoT) based applications. We are well-versed in all the best development frameworks, and use that knowledge to enhance your business’s online status. As with all our services, the aim is to yield maximum ROI through affordability but that doesn’t deter from the project quality. The service list includes:" >
@@ -58,7 +62,7 @@ function Service() {
 
           {/* service box */}
           <Servicebox
-          servserial="3"
+            servserial="3"
             img="./img/service-3.png"
             title="Online IT Solutions"
             description="We use our IT excellence to market your brand to your target audience across all the major online platforms. Now is the time to get noticed on social media and search engines. If you associate with industries incorporating banking, tourism, manufacturing, or any form of entertainment, then you will certainly relish the out-turn of the marketing techniques of an India-based agency at highly cheap costs. The service list includes:" >
@@ -75,7 +79,7 @@ function Service() {
 
           {/* service box */}
           <Servicebox
-          servserial="4"
+            servserial="4"
             img="./img/service-4.png"
             title="Blockchain Development Solutions"
             description="Blockchain technology is no longer a novel concept. in fact, many eCommerce enterprises use the technology to completely overhaul their market practices and the way they complete transactions. Through our expertise, your company can more effectively cache data through distributed networks. You can partner with us and acquire innovative blockchain solutions for your web/mobile applications development. The service list includes:" >
@@ -91,7 +95,7 @@ function Service() {
 
           {/* service box */}
           <Servicebox
-          servserial="5"
+            servserial="5"
             img="./img/service-5.png"
             title="AR/VR Solutions"
             description="AR/VR is the future of eCommerce shopping. You can most of your customers using the AR/VR-based applications to fulfill a host of tasks, and that’s where our world-class VR App Development Services using the best AR devices and its SDK can set your brand apart from the competition. Say hello to the new-age implementation to showcase your products and impart a more professional, tech-savvy outlook to your company. The service list includes:" >

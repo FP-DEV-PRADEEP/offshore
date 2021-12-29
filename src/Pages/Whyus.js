@@ -8,9 +8,11 @@ import { Helmet } from 'react-helmet';
 function Whyus() {
     return <>
 
-<Helmet>
-      <title>WHY US - Offshore</title>
-    </Helmet>
+        <Helmet>
+            <title>Why Us - Offshore</title>
+            <meta name="title" content="Best Staffing Company India |  IT Offshore Solutions" />
+            <meta name="description" content="We Are an Award Winning Software and Web Design and Development Company in India with Expertise in All Services. Which Helps Your Business in Developing Websites. Quick Contact Us info@futureprofilez.com" />
+        </Helmet>
 
 
         <Pagecaption subtitle={"WHY US"} pagetitle={"Best Offshore IT Staffing Agency"} />

@@ -14,7 +14,7 @@ function Ourclient() {
             <div className="col-lg-4 col-sm-6 mb-4" key={cleints.sitename}>
                 <div className="clientbox">
                     <div className="clientslogo">
-                        <img src={cleints.clientlogo}  alt="" />
+                        <img src={cleints.clientlogo} alt="" />
                     </div>
                     <p>{cleints.description}</p>
                     <Link
@@ -29,9 +29,13 @@ function Ourclient() {
 
     return (
         <>
-         <Helmet>
-      <title>Our Client - Offshore</title>
-    </Helmet>
+            <Helmet>
+                <title>Clients - Offshore</title>
+                <meta name="title" content="Our Clients | IT Offshore Solutions India" />
+                <meta name="description" content="We are a Top IT Outsourcing & Software Development Company in India. We have served thousands of satisfied clients from all over the globe in various spectrums successfully." />
+            </Helmet>
+
+
             <Pagecaption subtitle="Our Client" pagetitle="All Hi5 clients are 100% satisfied" />
             <div className="py-padding">
                 <div className="container">

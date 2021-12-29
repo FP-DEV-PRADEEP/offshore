@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 
 function Privacypolicy() {
   return <>
-   <Helmet>
+    <Helmet>
       <title>Privacy Policy - Offshore</title>
     </Helmet>
 

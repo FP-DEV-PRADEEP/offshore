@@ -2,15 +2,18 @@ import Hero from "../elements/Hero";
 import Hiredev from "../elements/Hiredev";
 import Newsletter from "../elements/Newsletter";
 import Slidersolution from "../elements/Slidersolution";
-import { BrowserRouter as  Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Switch, Route, NavLink } from 'react-router-dom';
 //  helmet js
 import { Helmet } from 'react-helmet';
 
 function Home(props) {
+
     return <>
-    <Helmet>
-      <title>Offshore</title>
-    </Helmet>
+        <Helmet>
+            <title>Offshore</title>
+            <meta name="title" content="Leading Offshore IT Staffing Company In India | IT Offshore Solutions" />
+            <meta name="description" content="We are a top IT outsourcing & software development company as we have served thousands of satisfied clients from all over the globe in various spectrums successfully.We are a Full-Service Software Development Leading Offshore IT Staffing Company In India. Offers Complete Web Development, IoT Services, Online IT Services, AR/VR Services and also provides Mobile App Development, at affordable prices. Talk to us now on +91-9983333334" />
+        </Helmet>
 
         <Hero />
         <div className="certified-devs py-padding">
@@ -18,7 +21,7 @@ function Home(props) {
                 <div className="row">
                     <div className="col-lg-5">
                         <img alt="img" src={window.location.origin + '/img/certified-dev.png'} className="img-fluid m-auto d-table" />
-                    </div> 
+                    </div>
                     <div className="col-lg-7">
                         <div className="sec-title">
                             <h2>Hire Certified Developers</h2>
@@ -29,7 +32,7 @@ function Home(props) {
                             <div className="serDev webdev">
                                 <div className="dev-title">
                                     <div className=" ser-ico">
-                                        <img  alt="img"  src={window.location.origin + '/img/webdev.svg'} className="img-fluid" />
+                                        <img alt="img" src={window.location.origin + '/img/webdev.svg'} className="img-fluid" />
                                     </div>
                                     Web Development</div>
                                 <div className="toogletip">
@@ -162,7 +165,7 @@ function Home(props) {
 
         {/* process */}
         <div className="process blue-bg py-padding position-relative ">
-            <img  alt="img"  src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
+            <img alt="img" src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
             <div className="container">
                 <div className="process-sec">
                     <div className="proleft">
@@ -228,7 +231,7 @@ function Home(props) {
                     </div>
                 </div>
 
-                <NavLink className="mainBtn border-btn d-table m-auto"  to="/services">Know More</NavLink>
+                <NavLink className="mainBtn border-btn d-table m-auto" to="/services">Know More</NavLink>
             </div>
         </div>
 
@@ -248,7 +251,7 @@ function Home(props) {
                             <h2>Offshore IT Staffing</h2>
                             <h3>A leading offshore staffing IT solution provider since 2008</h3>
                             <p>Some metrics play an essential role to measure the pulse of a company’s customer service efficiency, while others are more evaluating if a brand has a customer-centric approach. Our customer dashboard will examine this second type of metrics.</p>
-                            <NavLink className="mainBtn mt-4 mt-lg-5"  to="/services">Learn More</NavLink>
+                            <NavLink className="mainBtn mt-4 mt-lg-5" to="/services">Learn More</NavLink>
                         </div>
                     </div>
                     <div className="col-lg-6 ps-lg-5">
@@ -284,7 +287,7 @@ function Home(props) {
 
         {/* hire devs */}
         <Hiredev />
-        
+
         {/* newslettre */}
         <Newsletter />
     </>

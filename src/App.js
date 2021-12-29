@@ -33,10 +33,11 @@ function App() {
         <div className="App"   >
             <Helmet>
                 <title>Offshore</title>
-                <meta name="description" content="App Description" />
+                <meta name="title" content="Leading Offshore IT Staffing Company In India | IT Offshore Solutions" />
+                <meta name="description" content="We are a top IT outsourcing & software development company as we have served thousands of satisfied clients from all over the globe in various spectrums successfully.We are a Full-Service Software Development Leading Offshore IT Staffing Company In India. Offers Complete Web Development, IoT Services, Online IT Services, AR/VR Services and also provides Mobile App Development, at affordable prices. Talk to us now on +91-9983333334" />
             </Helmet>
 
-            {preload ? <Preload /> : 
+            {preload ? <Preload /> :
                 <Router>
                     <Header />
                     {/* switch cases */}
