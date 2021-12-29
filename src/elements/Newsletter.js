@@ -87,16 +87,6 @@ function Newsletter(props) {
                                     onChange={handleInput}
                                     />
                                     <img src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
-
-                                    {...register("email", { required: "email is Required", minLength: { value:4 } })}
-                                    name="email" type="text" placeholder="mail.name@gmail.com" className="form-control" />
-                                    
-                          
-                   
-                                    <img alt="img" src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
-                                    <img src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
-
-
                                 </div>
                                 {errors.email && (
                                     <div className="invalid-feedback d-block mb-3">
