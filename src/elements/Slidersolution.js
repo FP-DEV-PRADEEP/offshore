@@ -19,13 +19,13 @@ function Slidersolution() {
                     <div className="sec-title text-white">
                         <h1>Simple<br />
                             Solution for<br />
-                            <span class="orange-color">Complex</span><br />
+                            <span className="orange-color">Complex</span><br />
                             Projects</h1>
                         <p>Wish To Have Your Dream Project Completed By World Class Offshore IT Experts? This Is The Place To Be.</p>
                     </div>
                 </div>
                 <div className="rightSlide">
-                    <img src={window.location.origin + '/img/solution.png'} class="img-fluid m-auto d-table" />
+                    <img src={window.location.origin + '/img/solution.png'} className="img-fluid m-auto d-table" />
                 </div>
             </div>
         </Slider>

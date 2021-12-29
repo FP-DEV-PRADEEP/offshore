@@ -1,23 +1,23 @@
 function Preload() {
   return <>
      <div id="preloader">
-                <div id="ctn-preloader" class="ctn-preloader">
-                    <div class="animation-preloader">
-                        <div class="imagespider">
-                            <img src="./img/loader.png" class="img-fluid" alt="loadre" />
+                <div id="ctn-preloader" className="ctn-preloader">
+                    <div className="animation-preloader">
+                        <div className="imagespider">
+                            <img src="./img/loader.png" className="img-fluid" alt="loadre" />
                         </div>
-                        <div class="txt-loading">
-                            <span data-text-preloader="L" class="letters-loading"> L </span>
-                            <span data-text-preloader="O" class="letters-loading"> O </span>
-                            <span data-text-preloader="A" class="letters-loading"> A </span>
-                            <span data-text-preloader="D" class="letters-loading"> D </span>
-                            <span data-text-preloader="I" class="letters-loading"> I </span>
-                            <span data-text-preloader="N" class="letters-loading"> N </span>
-                            <span data-text-preloader="G" class="letters-loading"> G </span>
+                        <div className="txt-loading">
+                            <span data-text-preloader="L" className="letters-loading"> L </span>
+                            <span data-text-preloader="O" className="letters-loading"> O </span>
+                            <span data-text-preloader="A" className="letters-loading"> A </span>
+                            <span data-text-preloader="D" className="letters-loading"> D </span>
+                            <span data-text-preloader="I" className="letters-loading"> I </span>
+                            <span data-text-preloader="N" className="letters-loading"> N </span>
+                            <span data-text-preloader="G" className="letters-loading"> G </span>
                         </div>
                     </div>
-                    <div class="loader-section section-left"></div>
-                    <div class="loader-section section-right"></div>
+                    <div className="loader-section section-left"></div>
+                    <div className="loader-section section-right"></div>
                 </div>
             </div>
   </>

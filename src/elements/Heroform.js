@@ -7,7 +7,7 @@ function Heroform(props) {
 
     // ========= result success message =========
     const Result = () => {
-        return <div class="mt-3 alert alert-success" role="alert">
+        return <div className="mt-3 alert alert-success" role="alert">
             Your Message has been sent. we will back to you soon.
         </div>
     }
@@ -80,16 +80,16 @@ function Heroform(props) {
     }
 
     return <>
-        <div class="heroformOuter">
-            <div class="heroform">
+        <div className="heroformOuter">
+            <div className="heroform">
                 <h3><span>Quick</span> Contact Us</h3>
                 <form onSubmit={handleSubmit(sendEmail)} >
-                    <div class="form-group mb-3">
+                    <div className="form-group mb-3">
                         <input {...register("name", { required: "Name is Required", minLength: { value: 3 } })}
                             type="text"
                             value={userdata.name}
                             onChange={handleInput}
-                            class="form-control" name="name" placeholder="Your name" />
+                            className="form-control" name="name" placeholder="Your name" />
                         {errors.name && (
                             <div className="invalid-feedback d-block">
                                 Please fill your full name
@@ -97,12 +97,12 @@ function Heroform(props) {
                         )}
                     </div>
 
-                    <div class="form-group mb-3">
+                    <div className="form-group mb-3">
                         <input {...register("email", {
                             required: "email is Required",
                             pattern: emailPattern
                         })}
-                            value={userdata.email} onChange={handleInput} class="form-control" name="email" placeholder="Email" />
+                            value={userdata.email} onChange={handleInput} className="form-control" name="email" placeholder="Email" />
                         {errors.email && (
                             <div className="invalid-feedback d-block">
                                 Please enter your valid email address
@@ -110,7 +110,7 @@ function Heroform(props) {
                         )}
                     </div>
 
-                    <div class="form-group mb-3">
+                    <div className="form-group mb-3">
                         <input
                             {...register("subject", {
                                 required: "email is Required",
@@ -118,7 +118,7 @@ function Heroform(props) {
                             })}
                             value={userdata.subject}
                             onChange={handleInput}
-                            type="text" class="form-control"
+                            type="text" className="form-control"
                             name="subject" placeholder="Subject"
                         />
 
@@ -130,14 +130,14 @@ function Heroform(props) {
                     </div>
 
 
-                    <div class="form-group mb-3">
+                    <div className="form-group mb-3">
                         <textarea
 
                             {...register("message", { required: "message is Required", minLength: { value: 20 } })}
                             value={userdata.message}
                             onChange={handleInput}
 
-                            class="form-control" name="message" placeholder="Message">
+                            className="form-control" name="message" placeholder="Message">
 
                         </textarea>
                         {errors.message && (
@@ -147,8 +147,8 @@ function Heroform(props) {
                         )}
                     </div>
 
-                    <div class="form-group">
-                        <input type="submit" class="mainBtn border-0 px-5" value="Send Us" />
+                    <div className="form-group">
+                        <input type="submit" className="mainBtn border-0 px-5" value="Send Us" />
                     </div>
 
 
