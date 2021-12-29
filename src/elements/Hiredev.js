@@ -1,4 +1,3 @@
-import Button from './Button'
 import './Hiredev.css'
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 function Hiredev() {

@@ -9,7 +9,7 @@
 .bimg-left{width:100%;max-width:40%;}
 .chnages-title{width:100%;max-width:60%;}
 .after.change-title .bimg-left{max-width:65%;}
-.after.change-title .chnages-title{width:100%;max-width:35%;display:flex;flex-wrap:wrap;justify-content:end;}
+.after.change-title .chnages-title{width:100%;max-width:35%;display:flex;flex-wrap:wrap;justify-content:flex-end;}
 .after.change-title .chnages-title h2{font-size:55px;text-align:right;padding-right:30px;}
 .chnages-title h2{font-family:Lato;font-style:normal;font-weight:bold;font-size:48px;line-height:48px;color:#9C9A9E;position:relative;border-left:3px solid #EE334E;padding:10px 20px;}
 .before.change-title .chnages-title{padding-left:30px;}

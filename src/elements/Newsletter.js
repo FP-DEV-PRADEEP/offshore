@@ -63,7 +63,7 @@ function Newsletter(props) {
         <>
             {/* subscribe */}
             <div className="subscribe py-padding">
-                <img src={window.location.origin + '/img/newsletterbg.svg'} className="bg-img rightbottom img-fluid m-auto d-table" />
+                <img alt="img" src={window.location.origin + '/img/newsletterbg.svg'} className="bg-img rightbottom img-fluid m-auto d-table" />
 
                 <div className="container">
                     <div className="sec-title newsinner">
@@ -79,7 +79,7 @@ function Newsletter(props) {
                                     
                           
                         
-                                    <img src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
+                                    <img alt="img" src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
                                 </div>
                                 {errors.email && (
                             <div className="invalid-feedback d-block mb-3">

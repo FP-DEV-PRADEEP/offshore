@@ -1,61 +1,23 @@
- /* features */
  .feature-text{background:#F5F5F5;padding:50px 30px;}
-.featurebox{display:flex;flex-wrap:wrap;align-items:end;padding-bottom:120px;}
+.featurebox{display:flex;flex-wrap:wrap;align-items:flex-end;padding-bottom:120px;}
 .feature-img{width:100%;max-width:48%;flex:0 0 48%;position:relative;z-index:2;}
 .feature-text{width:100%;max-width:52%;flex:0 0 52%;position:relative;margin-bottom:-57px;}
 .feature-text:after{content:"";width:210px;height:100%;position:absolute;left:-210px;top:0;background:#f5f5f5;}
 .feature-text h2{font-family:Gill Sans;font-style:normal;font-weight:500;font-size:32px;line-height:48px;color:#251A1A;padding-bottom:6px;}
-.feature-text p{font-family:Lato;font-style:normal;font-weight:normal;font-size:18px;line-height:32px;
- color:#707070;}
+.feature-text p{font-family:Lato;font-style:normal;font-weight:normal;font-size:18px;line-height:32px;color:#707070;}
 .featureslist .featurebox:nth-child(even) .feature-img{order:2;}
 .featureslist .featurebox:nth-child(even) .feature-text:after{left:auto;right:-210px;}
 .feature-img img{width:100%;height:100%;max-height:360px;object-fit:cover;}
 .featurebox:last-child{padding-bottom:50px;}
-@media ( max-width:1199px){
-    .feature-text {
-        margin: 0;
-    }
-    
-    .featurebox {
-        padding-bottom: 60px;
-        align-items: inherit;
-    }
-    
-    .featureslist .featurebox  .feature-text:after {
-        display: none;
-    }
-    
-    .feature-img img { 
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        max-height: initial;
-    }
+@media ( max-width:1199px){.feature-text{margin:0;}
+.featurebox{padding-bottom:60px;align-items:inherit;}
+.featureslist .featurebox .feature-text:after{display:none;}
+.feature-img img{height:100%;width:100%;object-fit:cover;max-height:initial;}
 }
-
-@media ( max-width:991px){
-    .featurebox {
-        padding-bottom: 30px;
-        display: block;
-    }
-    
-    .feature-img, .feature-text {
-        max-width: 100%;
-    }
-    
-    .feature-text {
-        padding: 20px;
-    }
-    
-    .feature-img img {
-        max-height: 410px;
-    }
-    
-    .feature-text h2 {
-        font-size: 27px;
-        line-height: inherit;
-    }
-    .featurebox:last-child {
-        padding-bottom: 0;
-    }
+@media ( max-width:991px){.featurebox{padding-bottom:30px;display:block;}
+.feature-img,.feature-text{max-width:100%;}
+.feature-text{padding:20px;}
+.feature-img img{max-height:410px;}
+.feature-text h2{font-size:27px;line-height:inherit;}
+.featurebox:last-child{padding-bottom:0;}
 }
