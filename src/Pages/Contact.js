@@ -9,7 +9,6 @@ import { Helmet } from 'react-helmet';
 
 function Contact() {
 
-
   const Result = () => {
     return <div className="mt-3 alert alert-success" role="alert">
       Thank you for contact us. we will get back to you soon.
@@ -70,17 +69,14 @@ function Contact() {
       });
     reset();
     setTimeout(() => { showresult(false); }, 50000);
-
   }
 
-
-
   return <>
-  <Helmet>
-                <title>Contact js Title</title>
-                <meta name="description" content="App Description" />
-                <meta name="theme-color" content="#008f68" />
-            </Helmet>
+
+    <Helmet>
+      <title>Contact - Offshore</title>
+    </Helmet>
+
     <Pagecaption subtitle="Contact Us" pagetitle="We'd love to hear from you" />
     <div className="contact">
       <div className="container">

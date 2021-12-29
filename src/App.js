@@ -22,7 +22,6 @@ import Terms from './Pages/Terms';
 //  helmet js
 import { Helmet } from 'react-helmet';
 
-
 function App() {
     // preloader
     const [preload, setpreload] = useState(true);
@@ -30,16 +29,14 @@ function App() {
         setpreload(false);
     }, 1500); // <-- time in milliseconds
 
-
     return (
         <div className="App"   >
             <Helmet>
-                <title>Apps js Title</title>
+                <title>Offshore</title>
                 <meta name="description" content="App Description" />
-                <meta name="theme-color" content="#008f68" />
             </Helmet>
 
-            {preload ? <Preload /> :
+            {preload ? <Preload /> : 
                 <Router>
                     <Header />
                     {/* switch cases */}

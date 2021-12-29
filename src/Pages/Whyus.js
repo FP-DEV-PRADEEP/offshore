@@ -1,7 +1,18 @@
 import Feature from "../elements/Feature";
 import Pagecaption from "../elements/Pagecaption";
+//  helmet js
+import { Helmet } from 'react-helmet';
+
+
+
 function Whyus() {
     return <>
+
+<Helmet>
+      <title>WHY US - Offshore</title>
+    </Helmet>
+
+
         <Pagecaption subtitle={"WHY US"} pagetitle={"Best Offshore IT Staffing Agency"} />
 
         {/* our features */}

@@ -3,8 +3,15 @@ import Hiredev from "../elements/Hiredev";
 import Newsletter from "../elements/Newsletter";
 import Slidersolution from "../elements/Slidersolution";
 import { BrowserRouter as  Switch, Route, NavLink } from 'react-router-dom';
+//  helmet js
+import { Helmet } from 'react-helmet';
+
 function Home(props) {
     return <>
+    <Helmet>
+      <title>Offshore</title>
+    </Helmet>
+
         <Hero />
         <div className="certified-devs py-padding">
             <div className="container">

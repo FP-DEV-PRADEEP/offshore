@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import Clientsdata from './Clientsdata';
 import Pagecaption from "../elements/Pagecaption";
 import Button from '../elements/Button';
+//  helmet js
+import { Helmet } from 'react-helmet';
 
 function Clientdetail() {
 
@@ -13,6 +15,8 @@ function Clientdetail() {
 
     
     return <>
+    
+
         <Pagecaption addiclass={'onlypagination'} subtitle="Our Client" />
         <div className="py-5">
             <div className="container">
