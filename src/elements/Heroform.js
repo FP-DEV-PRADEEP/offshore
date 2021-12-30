@@ -2,6 +2,7 @@ import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
 import {reqHost,reqContact, reqSubscribe, reqBearer} from '../config/Config';
+import axios from 'axios';
 
 function Heroform(props) {
 
@@ -41,33 +42,37 @@ function Heroform(props) {
     }
     const apiContact = reqHost + reqContact;
     const bearer = reqBearer;
+    const axiosClient = axios.create({
+        baseURL : apiContact,
+        method : 'POST',
+        headers : {
+            'Authorization': 'Bearer '+bearer,
+            'Accept'       : 'appilication/json',
+            'Content-Type' : 'application/json'
+        }
+    });
     // ========= send email =========
     const sendEmail = (formData) => {
-        var host = apiContact;
-        var reqData = {
-            method: 'POST',
+        var config = {
             headers: {
-                'Authorization': 'Bearer '+bearer,
-                'content-Type': 'application/json'
+                Authorization: "Bearer "+bearer,
+                Accept      : "appilication/json",
+                "Content-Type" : "application/json"
             },
-            body: JSON.stringify({
-                name: userdata.name,
-                email: userdata.email,
-                subject: userdata.subject,
-                message: userdata.message
-            })
+            params : userdata
         };
-        fetch(host, reqData)
-            .then(response => response.json())
-            .then(data => {
+        // console.table(reqData);
+        // axios.get(apiContact, userdata, {headers})
+        axios.get(apiContact, config)
+            .then((response) => {
                 showresult(true);
-                // console.table(data);
+                // console.table(response.data);
             })
-            .catch(error => {
-                showresult(false);
-                console.table(error);
-            });
+            // .then((data) => console.table(data))
+            .catch((error) => console.table(error));
+        
         reset();
+        setTimeout(() => { showresult(false); }, 5000);
         
 
         // setTimeout(() => {

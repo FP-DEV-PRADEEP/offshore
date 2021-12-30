@@ -22,11 +22,11 @@ function Footer() {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="mailto:info@futureprofilez.com">
+                                        <a href="mailto:contact@itoffshoresolutions.com">
                                             <div className="fooCircle">
                                                 <img src={window.location.origin + '/img/mailicon.svg'} className="img-fluid" />
                                             </div>
-                                            <p>info@futureprofilez.com</p>
+                                            <p>contact@itoffshoresolutions.com</p>
                                         </a>
                                     </li>
                                 </ul>

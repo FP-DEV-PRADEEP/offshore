@@ -5,6 +5,7 @@ import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
 import { reqHost, reqContact, reqBearer } from '../config/Config';
+import axios from 'axios';
 
 //  helmet js
 import { Helmet } from 'react-helmet';
@@ -47,33 +48,26 @@ function Contact() {
   }
 
   const sendEmail = (formData) => {
-    var host = apiContact;
-    var reqData = {
-      method: 'POST',
+    var config = {
       headers: {
-        'Authorization': 'Bearer ' + bearer,
-        'content-Type': 'application/json'
+          Authorization: "Bearer "+bearer,
+          Accept      : "appilication/json",
+          "Content-Type" : "application/json"
       },
-      body: JSON.stringify({
-        name: userdata.name,
-        email: userdata.email,
-        phone: userdata.phone,
-        message: userdata.message
-      })
+      params : userdata
     };
-    fetch(host, reqData)
-      .then(response => response.json())
-      .then(data => {
-        showresult(true);
-        console.table(data);
-      })
-      .catch(error => {
-        showresult(false);
-        console.table(error);
-      });
+    // console.table(reqData);
+    // axios.get(apiContact, userdata, {headers})
+    axios.get(apiContact, config)
+        .then((response) => {
+            showresult(true);
+            // console.table(response.data);
+        })
+        // .then((data) => console.table(data))
+        .catch((error) => console.table(error));
+    
     reset();
-    setTimeout(() => { showresult(false); }, 50000);
-
+    setTimeout(() => { showresult(false); }, 5000);
   }
 
 
@@ -106,7 +100,7 @@ function Contact() {
                       Jaipur, Rajasthan, India 302016</p>
                   </div>
                 </a>
-                <a href="mailto:info@futureprofilez.com">
+                <a href="mailto:contact@itoffshoresolutions.com">
                   <div className="dIcons email">
                     <svg width="29" height="23" viewBox="0 0 29 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M28.3077 5.96762V18.5769C28.3077 19.75 27.8417 20.875 27.0122 21.7045C26.1827 22.534 25.0577 23 23.8846 23H4.42308C3.25 23 2.12498 22.534 1.29549 21.7045C0.466001 20.875 0 19.75 0 18.5769V5.96762L13.7045 14.0318C13.8406 14.1121 13.9958 14.1544 14.1538 14.1544C14.3119 14.1544 14.4671 14.1121 14.6032 14.0318L28.3077 5.96762ZM23.8846 5.47624e-08C24.9729 -0.000171113 26.0231 0.400919 26.8343 1.12654C27.6454 1.85216 28.1606 2.85137 28.2812 3.933L14.1538 12.2431L0.0265386 3.933C0.147126 2.85137 0.662265 1.85216 1.47341 1.12654C2.28455 0.400919 3.33474 -0.000171113 4.42308 5.47624e-08H23.8846Z" fill="white" />
@@ -114,7 +108,7 @@ function Contact() {
                   </div>
                   <div className="dt-link">
                     <h2>Email Address</h2>
-                    <p>info@futureprofilez.com</p>
+                    <p>contact@itoffshoresolutions.com</p>
                   </div>
                 </a>
                 <a href="tel:+919983333334">
@@ -151,7 +145,7 @@ function Contact() {
                   </div>
                   <div className="from-group mb-3">
                     <input
-                      {...register("phone", { required: true, minLength: 14, minLength: 8 })}
+                      {...register("phone", { required: true, maxLength: 14, minLength: 8 })}
                       onChange={handleInput}
                       name="phone" type="tel" className="form-control" placeholder="Phone Number" />
                     {errors.phone && (
