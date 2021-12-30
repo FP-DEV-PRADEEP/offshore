@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { React } from "react";
-import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 import './Newsletter.css'
 import {reqHost, reqSubscribe, reqBearer} from '../config/Config';
+import axios from 'axios';
 
 function Newsletter(props) {
     const Result = () => {
@@ -42,27 +42,23 @@ function Newsletter(props) {
     const bearer = reqBearer;
 
     const subscribe = (formData) => {
-        var host = apiSubscribe;
-        var reqData = {
-            method: 'POST',
+        var config = {
             headers: {
-                'Authorization': 'Bearer '+bearer,
-                'content-Type': 'application/json'
+                Authorization: "Bearer "+bearer,
+                Accept      : "appilication/json",
+                "Content-Type" : "application/json"
             },
-            body: JSON.stringify({
-                email: userdata.email
-            })
-        };
-        fetch(host, reqData)
-            .then(response => response.json())
-            .then(data => {
-                showresult(true);
-                // console.table(data);
-            })
-            .catch(error => {
-                showresult(false);
-                // console.table(error);
-            });
+            params : userdata
+          };
+          // console.table(reqData);
+          // axios.get(apiContact, userdata, {headers})
+          axios.get(apiSubscribe, config)
+              .then((response) => {
+                  showresult(true);
+                  // console.table(response.data);
+              })
+              // .then((data) => console.table(data))
+              .catch((error) => console.table(error));
         reset();
         setTimeout(()=>{showresult(false);}, 50000);
     };
