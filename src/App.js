@@ -12,17 +12,22 @@ import Header from './elements/Header';
 import Footer from './elements/Footer';
 import Whyus from './Pages/Whyus';
 
+
 // detail page
 import Ourclient from './Pages/Ourclient';
 import Clientdetail from './Pages/Clientdetail';
-import { useState } from 'react';
 import Preload from './elements/Preload';
 import Privacypolicy from './Pages/Privacypolicy';
 import Terms from './Pages/Terms';
+import { useState, useEffect } from "react";
+
 //  helmet js
 import { Helmet } from 'react-helmet';
+import Scroll from './elements/Scroll';
+import Hireus from './Pages/Hireus';
 
 function App() {
+
     // preloader
     const [preload, setpreload] = useState(true);
     setTimeout(function () {
@@ -41,6 +46,8 @@ function App() {
                 <Router>
                     <Header />
                     {/* switch cases */}
+
+                    <Scroll >
                     <Switch>
                         <Route exact path="/">
                             <Home />
@@ -66,7 +73,11 @@ function App() {
                         <Route path="/terms-and-condition">
                             <Terms />
                         </Route>
+                        <Route path="/hire-developers">
+                            <Hireus />
+                        </Route>
                     </Switch>
+                    </Scroll>
                     {/* footer */}
                     <Footer />
                 </Router>

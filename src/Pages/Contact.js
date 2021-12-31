@@ -11,7 +11,7 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
 function Contact() {
-
+ 
   const Result = () => {
     return <div className="mt-3 alert alert-success" role="alert">
       Thank you for contact us. we will get back to you soon.
@@ -24,9 +24,10 @@ function Contact() {
     handleSubmit,
     reset,
     formState: { errors }
-  } = useForm({
+} = useForm({
     defaultValues: { yes_i_understand: false }
-  });
+});
+
   const apiContact = reqHost + reqContact;
   const bearer = reqBearer;
 
@@ -150,7 +151,7 @@ function Contact() {
                       name="phone" type="tel" className="form-control" placeholder="Phone Number" />
                     {errors.phone && (
                       <div className="invalid-feedback d-block mb-3">
-                        Please enter your valid phonenumber
+                        Please enter your valid phone number
                       </div>
                     )}
                   </div>

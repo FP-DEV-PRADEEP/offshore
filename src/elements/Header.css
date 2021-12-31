@@ -6,7 +6,9 @@ header{background:rgba(230,240,249,0.5);padding-bottom:25px;}
 .topcontact li a{display:flex;align-items:center;font-size:16px;line-height:19px;color:#251A1A;}
 .topcontact li a p{margin:0;margin-left:10px;}
 .topcontact{min-width:540px;}
-
+.logo img {
+    max-width: 230px;
+}
 .border-btn{background:transparent;border:2px solid #0081C8;color:#0081C8;}
 .topcontact li a:hover,footer li a:hover{color:#ee334e !important;}
 /* navbar */

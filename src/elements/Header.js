@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink, Link } from 'react-router-dom';
 import Button from './Button';
 import logo from '../image/logo.svg'
 import './Header.css'
+import { useState } from 'react';
 
 function Header() {
     return (
         <>
-            <header>
+            <header id='header'>
                 <div className="topheader">
                     <div className="container d-flex flex-wrap justify-content-between align-items-center">
                         <div className="logo">
@@ -45,21 +46,20 @@ function Header() {
 
                 <div className=" container">
                     <div className="menuBar d-flex flex-wrap justify-content-between align-items-center">
-
                         <nav className="navbar navbar-expand-lg p-0">
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </button>
-                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div className="collapse navbar-collapse " id="navbarSupportedContent" >
                                 <ul className="d-flex flex-wrap">
                                     <li className="nav-item me-4">
                                         <NavLink activeClassName="active" exact className="nav-link" to="/">Home</NavLink>
                                     </li>
 
                                     <li className="nav-item me-4">
-                                        <NavLink activeClassName="active" className="nav-link" to="/services">Services</NavLink>
+                                        <NavLink activeClassName="active" className="nav-link" to="/services" >Services</NavLink>
                                     </li>
 
                                     <li className="nav-item me-4">
@@ -68,6 +68,11 @@ function Header() {
                                     <li className="nav-item me-4">
                                         <NavLink activeClassName="active" className="nav-link" to="/why-us">Why Us</NavLink>
                                     </li>
+                                    
+                                    <li className="nav-item me-4">
+                                    <NavLink activeClassName="active" className="nav-link" to="/hire-developers">Hire Developer</NavLink>
+
+                                        </li>
                                     <li className="nav-item me-4">
                                         <NavLink activeClassName="active" className="nav-link" to="/contact">Contact</NavLink>
                                     </li>
@@ -78,10 +83,10 @@ function Header() {
                             <ul className="d-flex flex-wrap align-items-center">
                                 <li>
                                     <a href="#"
-                                    onClick={(e)=>{
-                                        e.preventDefault();
-                                        window.open('https://accounts.google.com/ServiceLogin?service=talk&passive=1209600&continue=https://talkgadget.google.com:443/hangouts/_/?hl%3Den%26ht%3D0%26hcb%3D0%26lm1%3D1482921102427%26hs%3D92%26hscid%3D1482921102423039878%26ssc%3DWyIiLDAsbnVsbCxudWxsLG51bGwsW10sbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLDkyLG51bGwsbnVsbCxudWxsLFsxNDgyOTIxMTAyNDI3XSxudWxsLG51bGwsW10sbnVsbCwiMTQ4MjkyMTEwMjQyMzAzOTg3OCIsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxbXSxbXSxudWxsLG51bGwsbnVsbCxbXSxudWxsLG51bGwsbnVsbCxbXSxudWxsLG51bGwsW1siQUl6YVN5RFhOcVNsLXFTalBuRm9nQUhGZFRYUnpMT1VBbUM4LWtjIiwiZFF3NHc5V2dYY1EiLDJdXV0.&hl=en#identifier', 'Hangout', 'height=600,width=800,left=300,top=200');
-                                    }}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            window.open('https://accounts.google.com/ServiceLogin?service=talk&passive=1209600&continue=https://talkgadget.google.com:443/hangouts/_/?hl%3Den%26ht%3D0%26hcb%3D0%26lm1%3D1482921102427%26hs%3D92%26hscid%3D1482921102423039878%26ssc%3DWyIiLDAsbnVsbCxudWxsLG51bGwsW10sbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLDkyLG51bGwsbnVsbCxudWxsLFsxNDgyOTIxMTAyNDI3XSxudWxsLG51bGwsW10sbnVsbCwiMTQ4MjkyMTEwMjQyMzAzOTg3OCIsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxbXSxbXSxudWxsLG51bGwsbnVsbCxbXSxudWxsLG51bGwsbnVsbCxbXSxudWxsLG51bGwsW1siQUl6YVN5RFhOcVNsLXFTalBuRm9nQUhGZFRYUnpMT1VBbUM4LWtjIiwiZFF3NHc5V2dYY1EiLDJdXV0.&hl=en#identifier', 'Hangout', 'height=600,width=800,left=300,top=200');
+                                        }}
                                     >
                                         <img src={window.location.origin + '/img/hangoutIcon.svg'} className="img-fluid" />
                                     </a>
