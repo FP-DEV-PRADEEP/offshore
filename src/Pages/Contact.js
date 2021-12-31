@@ -24,9 +24,10 @@ function Contact() {
     handleSubmit,
     reset,
     formState: { errors }
-  } = useForm({
+} = useForm({
     defaultValues: { yes_i_understand: false }
-  });
+});
+
   const apiContact = reqHost + reqContact;
   const bearer = reqBearer;
 
@@ -37,7 +38,7 @@ function Contact() {
     phone: "",
     message: "",
   });
-  let nameattr, valueattr;
+  let nameattr, valueattr;``
   let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const handleInput = (e) => {
@@ -150,7 +151,7 @@ function Contact() {
                       name="phone" type="tel" className="form-control" placeholder="Phone Number" />
                     {errors.phone && (
                       <div className="invalid-feedback d-block mb-3">
-                        Please enter your valid phonenumber
+                        Please enter your valid phone number
                       </div>
                     )}
                   </div>

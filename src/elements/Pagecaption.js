@@ -23,7 +23,7 @@ const currentlocation = location.pathname.slice(1)
                 </nav>
             </div>
         </div>
-    </>
+    </> 
 }
-
+ 
 export default Pagecaption;

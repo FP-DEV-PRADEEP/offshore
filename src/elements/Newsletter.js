@@ -76,7 +76,7 @@ function Newsletter(props) {
                         <p>Submit your email address and subscribe to our newsletter to be on the up and up.</p>
                         <form onSubmit={handleSubmit(subscribe)}>
                             <div className="newsletterbar">
-                                <div className="inputBar mt-3 mb-4 mb-lg-5">
+                                <div className="inputBar mt-3 mb-1 mb-lg-1">
                                     <input 
                                     {...register("email", { required: true, pattern:emailPattern })}
                                     name="email" type="email" placeholder="name@gmail.com" className="form-control"
@@ -90,7 +90,7 @@ function Newsletter(props) {
                                     </div>
                                 )}
                                 
-                                <button className="mainBtn border-0">Subscribe</button>
+                                <button className="mainBtn border-0 mt-4">Subscribe</button>
                                 <div className="form-group">
                                     {result ? <Result /> : null}
                                 </div>

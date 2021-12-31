@@ -18,7 +18,7 @@ function Clientdetail() {
 
 
         <Pagecaption addiclass={'onlypagination'} subtitle="Our Client" />
-        <div className="py-5">
+        <div className="py-3 py-md-5">
             <div className="container">
 
                 <div className="before change-title">
@@ -50,7 +50,7 @@ function Clientdetail() {
                         {thisclient.technologies}
 
                     </ul>
-                    <Button text='Visit Site' addclass="mt-5" href='#' />
+                    <Button text='Visit Site' addclass="mt-4 mt-md-5 mb-2 mb-md-0 " href='#' />
                 </div>
             </div>
         </div>
