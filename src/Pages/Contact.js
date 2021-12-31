@@ -11,7 +11,7 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet';
 
 function Contact() {
-
+ 
   const Result = () => {
     return <div className="mt-3 alert alert-success" role="alert">
       Thank you for contact us. we will get back to you soon.
@@ -38,7 +38,7 @@ function Contact() {
     phone: "",
     message: "",
   });
-  let nameattr, valueattr;``
+  let nameattr, valueattr;
   let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const handleInput = (e) => {
