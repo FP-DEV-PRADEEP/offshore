@@ -4,7 +4,7 @@ import Newsletter from "../elements/Newsletter";
 import { Helmet } from 'react-helmet';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { reqHost, reqContact, reqBearer } from '../config/Config';
+import { reqHost, reqHireDev, reqBearer } from '../config/Config';
 import axios from 'axios';
 function Hireus() {
     const Result = () => {
@@ -21,7 +21,7 @@ function Hireus() {
     } = useForm({
         defaultValues: { yes_i_understand: false }
     });
-    const apiContact = reqHost + reqContact;
+    const apiContact = reqHost + reqHireDev;
     const bearer = reqBearer;
 
     // ========= get data function =========
@@ -60,10 +60,13 @@ function Hireus() {
         axios.get(apiContact, config)
             .then((response) => {
                 showresult(true);
-                // console.table(response.data);
+                console.table(response.data);
             })
             // .then((data) => console.table(data))
-            .catch((error) => console.table(error));
+            .catch((error) => {
+                console.log(error.response.data.message);
+                console.table(error.response.data.errors);
+            });
         reset();
         setTimeout(() => { showresult(false); }, 5000);
     }
@@ -129,10 +132,10 @@ function Hireus() {
                                         <div className="col-md-6 mb-3">
                                             <div className="from-group">
 
-                                                <select required
+                                                <select 
                                                     {...register("post", { required: true })} onChange={handleInput}
                                                      className="form-control" >
-                                                    <option value="" disabled >Select Category</option>
+                                                    <option value=""  >Select Category</option>
                                                     <option value="Select Category">Select Category</option>
                                                     <option value="hire-seo-expert"> Hire SEO Expert From India</option>
                                                     <option value="hire-mobile-developer"> Hire Mobile App Developer</option>
@@ -165,10 +168,10 @@ function Hireus() {
 
                                         <div className="col-md-6 mb-3">
                                             <div className="from-group">
-                                                <select required
+                                                <select
                                                     {...register("type", { required: true })} onChange={handleInput}
                                                     name="type" className="form-control" >
-                                                    <option value="Select Category">Select Category Model</option>
+                                                    <option value=""  >Select Category Model</option>
                                                     <option value="Full Time Hiring Model">Full Time Hiring Model</option>
                                                     <option value="Part Time Hiring Model">Part Time Hiring Model</option>
                                                     <option value="Bucket-System-Model">Bucket System Model</option>
@@ -194,7 +197,7 @@ function Hireus() {
                                     </div>
                                     <div className="from-group d-flex flex-wrap align-items-center">
                                         <div className="captcha-box"></div>
-                                        <button className="mainBtn border-0 px-5 m-auto d-table" type="submit" >Hire Us</button>
+                                        <button className="mainBtn border-0 px-5  ms-md-auto d-table" type="submit" >Send Us</button>
                                     </div>
                                     <div className="form-group">
                                         {result ? <Result /> : null}
