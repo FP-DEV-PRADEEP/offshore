@@ -25,6 +25,7 @@ import { useState, useEffect } from "react";
 import { Helmet } from 'react-helmet';
 import Scroll from './elements/Scroll';
 import Hireus from './Pages/Hireus';
+import Notfound from './Pages/Notfound';
 
 function App() {
 
@@ -75,6 +76,9 @@ function App() {
                         </Route>
                         <Route path="/hire-developers">
                             <Hireus />
+                        </Route>
+                        <Route path="/page-not-found"> 
+                            <Notfound /> 
                         </Route>
                     </Switch>
                     </Scroll>
