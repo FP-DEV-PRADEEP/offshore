@@ -5,6 +5,8 @@ import './Header.css'
 import { useState, useEffect } from 'react';
 // import { Navbar, Nav, NavDropdown, Form, FormControl, NavItem } from 'react-bootstrap'
 import jQuery from 'jquery';
+import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom'
 
 function Header() {
  
@@ -14,14 +16,21 @@ function Header() {
         });
       }, []);
 
+    //  get page name
+    const location = useLocation();
+    const currentlocation = location.pathname.slice(1)
 
     return (
         <>
+        <Helmet>
+           <link rel="canonical" href={`https://itoffshoresolutions.com/${currentlocation}`} />
+        </Helmet>
+
             <header id='header'>
                 <div className="topheader">
                     <div className="container d-flex flex-wrap justify-content-between align-items-center">
                         <div className="logo">
-                            <NavLink to="/"><img src={logo} className="img-fluid" /></NavLink>
+                            <NavLink to="/"><img src={logo} className="img-fluid" alt='IT Offshore Solutions' /></NavLink>
                         </div>
                         <div className="topcontact">
                             <ul className="p-0 d-flex flex-wrap justify-content-between">
@@ -112,17 +121,17 @@ function Header() {
                                             window.open('https://accounts.google.com/ServiceLogin?service=talk&passive=1209600&continue=https://talkgadget.google.com:443/hangouts/_/?hl%3Den%26ht%3D0%26hcb%3D0%26lm1%3D1482921102427%26hs%3D92%26hscid%3D1482921102423039878%26ssc%3DWyIiLDAsbnVsbCxudWxsLG51bGwsW10sbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLDkyLG51bGwsbnVsbCxudWxsLFsxNDgyOTIxMTAyNDI3XSxudWxsLG51bGwsW10sbnVsbCwiMTQ4MjkyMTEwMjQyMzAzOTg3OCIsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxbXSxbXSxudWxsLG51bGwsbnVsbCxbXSxudWxsLG51bGwsbnVsbCxbXSxudWxsLG51bGwsW1siQUl6YVN5RFhOcVNsLXFTalBuRm9nQUhGZFRYUnpMT1VBbUM4LWtjIiwiZFF3NHc5V2dYY1EiLDJdXV0.&hl=en#identifier', 'Hangout', 'height=600,width=800,left=300,top=200');
                                         }}
                                     >
-                                        <img src={window.location.origin + '/img/hangoutIcon.svg'} className="img-fluid" />
+                                        <img alt='hangout' src={window.location.origin + '/img/hangoutIcon.svg'} className="img-fluid" />
                                     </a>
                                 </li>
                                 <li>
                                     <a href='https://api.whatsapp.com/send?phone=919983333334&text=Hello,%20I%20want%20to%20discuss%20my%20project.%20Please%20schedule%20a%20metting.' target="_blank">
-                                        <img src={window.location.origin + '/img/whatsappIcon.svg'} className="img-fluid" />
+                                        <img alt='whatsapp' src={window.location.origin + '/img/whatsappIcon.svg'} className="img-fluid" />
                                     </a>
                                 </li>
                                 <li>
                                     <a href='skype:vishal.soolanki?chat' target="_blank">
-                                        <img src={window.location.origin + '/img/skypeIcon.svg'} className="img-fluid" />
+                                        <img alt='skype' src={window.location.origin + '/img/skypeIcon.svg'} className="img-fluid" />
                                     </a>
                                 </li>
                             </ul>

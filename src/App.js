@@ -35,6 +35,9 @@ function App() {
         setpreload(false);
     }, 1500); // <-- time in milliseconds
 
+
+
+    
     return (
         <div className="App"   >
             <Helmet>
@@ -77,7 +80,7 @@ function App() {
                                 <Hireus />
                             </Route>
                             <Route>
-                                <Notfound />
+                                <Home />
                             </Route>
                         </Switch>
                     </Scroll>
