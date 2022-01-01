@@ -101,7 +101,7 @@ function Hireus() {
                                 <h3 className="text-center mb-0 mt-3 mt-lg-0 mb-md-3">Hire Developer Form</h3>
                                 <form onSubmit={handleSubmit(sendEmail)} >
                                     <div className="row" >
-                                        <div className="col-md-6 mb-3">
+                                        <div className="col-md-6 mb-1 mb-md-3">
                                             <div className="from-group">
                                                 <input {...register("name", { required: true })} onChange={handleInput}
                                                     name="name" type="text" className="form-control" placeholder="Your name" />
@@ -110,7 +110,7 @@ function Hireus() {
                                                 )}
                                             </div>
                                         </div>
-                                        <div className="col-md-6 mb-3">
+                                        <div className="col-md-6 mb-1 mb-md-3">
                                             <div className="from-group">
                                                 <input {...register("email", { required: true, pattern: emailPattern })}
                                                     onChange={handleInput} name="email" type="text" className="form-control" placeholder="Email" />
@@ -121,7 +121,7 @@ function Hireus() {
                                                 )}
                                             </div>
                                         </div>
-                                        <div className="col-md-6 mb-3">
+                                        <div className="col-md-6 mb-1 mb-md-3">
                                             <div className="from-group">
                                                 <input {...register("company", { required: true })} onChange={handleInput}
                                                     name="company" type="text" className="form-control" placeholder="Company name" />
@@ -131,7 +131,7 @@ function Hireus() {
                                             </div>
                                         </div>
 
-                                        <div className="col-md-6 mb-3">
+                                        <div className="col-md-6 mb-1 mb-md-3">
                                             <div className="from-group">
                                                 <input
                                                     {...register("phone", { required: true, maxLength: 14, minLength: 8 })}
@@ -145,7 +145,7 @@ function Hireus() {
                                             </div>
                                         </div>
 
-                                        <div className="col-md-6 mb-3">
+                                        <div className="col-md-6 mb-1 mb-md-3">
                                             <div className="from-group">
 
                                                 <select
@@ -182,7 +182,7 @@ function Hireus() {
                                             </div>
                                         </div>
 
-                                        <div className="col-md-6 mb-3">
+                                        <div className="col-md-6 mb-1 mb-md-3">
                                             <div className="from-group">
                                                 <select
                                                     {...register("type", { required: true })} onChange={handleInput}
@@ -197,7 +197,7 @@ function Hireus() {
                                                 )}
                                             </div>
                                         </div>
-                                        <div className="col-md-12 mb-3">
+                                        <div className="col-md-12 mb-1 mb-md-3">
                                             <div className="from-group">
                                                 <textarea placeholder="Project Details" {...register("details", { required: true })}
                                                     onChange={handleInput} className="form-control" name="details">
@@ -219,7 +219,7 @@ function Hireus() {
                                                 onChange={OnCaptcha}
                                             />
                                         </div>
-                                        <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 mt-3  ms-md-auto d-table" type="submit" >Send Us</button>
+                                        <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 mt-1  ms-md-auto d-table" type="submit" >Send Us</button>
                                     </div>
 
 

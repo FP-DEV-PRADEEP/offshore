@@ -2,11 +2,19 @@ import { BrowserRouter as Router, Switch, Route, NavLink, Link } from 'react-rou
 import Button from './Button';
 import logo from '../image/logo.svg'
 import './Header.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { Navbar, Nav, NavDropdown, Form, FormControl, NavItem } from 'react-bootstrap'
-
+import jQuery from 'jquery';
 
 function Header() {
+ 
+    useEffect(() => {
+        jQuery('.navbar-collapse a').on('click', function(){
+            jQuery('.navbar-collapse').removeClass("show");     
+        });
+      }, []);
+
+
     return (
         <>
             <header id='header'>
