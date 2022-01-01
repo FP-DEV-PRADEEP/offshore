@@ -16,7 +16,6 @@ function Clientdetail() {
 
     return <>
 
-
         <Pagecaption addiclass={'onlypagination'} subtitle="Our Client" />
         <div className="py-3 py-md-5">
             <div className="container">

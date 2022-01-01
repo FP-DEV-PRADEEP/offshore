@@ -9,14 +9,24 @@ import ReCAPTCHA from "react-google-recaptcha";
 function Heroform(props) {
     // google captcha function
     const [isCaptchaVerify, CaptchaVerify] = useState(false);
+    const [cToken, setCtoken] = useState('');
     function OnCaptcha(value) {
       console.log("Captcha value:", value);
       if(value.length > 1){
         CaptchaVerify(true);
+        showCerror(false);
+        setCtoken(value);
       }else {
         CaptchaVerify(false);
+        setCtoken('');
+        // showCerror(true);
       }
-    }  
+    } 
+     
+    const [cErrorMsg, setCmsg] = useState('');
+    const [cresult, showCerror] = useState(false);
+    // const [result, showresult] = useState(false);
+    
 
     // ========= result success message =========
     const Result = () => {
@@ -25,6 +35,11 @@ function Heroform(props) {
         </div>
     }
     const [result, showresult] = useState(false);
+
+    const CaptchaError = () => {
+        return <span className="alert alert-danger">{cErrorMsg}</span>
+      }
+   
 
     // ========= react hook form validation function =========
     const {
@@ -54,6 +69,17 @@ function Heroform(props) {
     }
     const apiContact = reqHost + reqContact;
     const bearer = reqBearer;
+
+
+    let captchaToken;
+
+  /**
+   * Validate Google Captcha Response
+   * @param {string} token Google Captche Token
+   * @return {boolean}
+   */
+
+
     const axiosClient = axios.create({
         baseURL: apiContact,
         method: 'POST',
@@ -63,38 +89,46 @@ function Heroform(props) {
             'Content-Type': 'application/json'
         }
     });
-    // ========= send email =========
-    const sendEmail = (formData) => {
-        var config = {
-            headers: {
-                Authorization: "Bearer " + bearer,
-                Accept: "appilication/json",
-                "Content-Type": "application/json"
-            },
-            params: userdata
-        };
-        // console.table(reqData);
-        // axios.get(apiContact, userdata, {headers})
-        axios.get(apiContact, config)
-            .then((response) => {
-                showresult(true);
-                // console.table(response.data);
-            })
-            // .then((data) => console.table(data))
-            .catch((error) => console.table(error));
 
-        reset();
-        setTimeout(() => { showresult(false); }, 5000);
-
-
-        // setTimeout(() => {
-        //     showresult(true);
-        // }, 500);
-        // setTimeout(() => {
-        //     showresult(false);
-        // }, 4000);
-
+    // api function
+  const sendEmail = (formData) => {
+    if(isCaptchaVerify){
+      // var captchaData = {
+      //   "form_params":{
+      //     "secret": gCaptchaSecret,
+      //     "value" : cToken
+      //   }
+      // };
+      // axios.post('https://www.google.com/recaptcha/api/siteverify',captchaData)
+      // .then(response => {
+      //   console.table(response.data);
+      // }).catch(error => {
+      //   console.table(error);
+      // });
+      var config = {
+        headers: {
+          Authorization: "Bearer " + bearer,
+          Accept: "appilication/json",
+          "Content-Type": "application/json"
+        },
+        params: userdata
+      };
+      axios.get(apiContact, config)
+        .then((response) => {
+          showresult(true);
+          // console.table(response.data);
+        })
+        // .then((data) => console.table(data))
+        .catch((error) => console.table(error));
+  
+      reset();
+      setTimeout(() => { showresult(false); }, 5000);
+    } else {
+      setCmsg('Please verify the captcha');
+      showCerror(true);
     }
+  }
+
 
     return <>
         <div className="heroformOuter">
@@ -145,8 +179,6 @@ function Heroform(props) {
                             </div>
                         )}
                     </div>
-
-
                     <div className="form-group mb-3">
                         <textarea
 
@@ -167,11 +199,12 @@ function Heroform(props) {
                     <div className="form-group d-flex justify-content-center">
                         <div className="captcha-box">
                     <ReCAPTCHA
-                        sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                        // sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                         onChange={OnCaptcha}
                       /> 
                       </div>
-                      <input disabled={!isCaptchaVerify} type="submit" className="mainBtn border-0 px-4 ms-auto me-0 d-table" value="Send Us" />
+                      <input type="submit" className="mainBtn border-0 px-4 ms-auto me-0 d-table" value="Send Us" />
 
                     </div>
 

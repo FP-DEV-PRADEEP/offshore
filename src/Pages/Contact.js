@@ -13,35 +13,23 @@ import { Helmet } from 'react-helmet';
 
 function Contact() {
 
-    // google captcha function
-    const [isCaptchaVerify, CaptchaVerify] = useState(false);
-    const [cToken, setCtoken] = useState('');
-    function OnCaptcha(value) {
-      console.log("Captcha value:", value);
-      if(value.length > 1){
-        CaptchaVerify(true);
-        showCerror(false);
-        setCtoken(value);
-      }else {
-        CaptchaVerify(false);
-        setCtoken('');
-        // showCerror(true);
-      }
-    } 
-    
-    const [cErrorMsg, setCmsg] = useState('');
+  // google captcha function
+  const [isCaptchaVerify, CaptchaVerify] = useState(false);
+  const [cToken, setCtoken] = useState('');
+  function OnCaptcha(value) {
+    console.log("Captcha value:", value);
+    if (value.length > 1) {
+      CaptchaVerify(true);
+      showCerror(false);
+      setCtoken(value);
+    } else {
+      CaptchaVerify(false);
+      setCtoken('');
+      // showCerror(true);
+    }
+  }
 
-  // result on form success
-  const Result = () => {
-    return <div className="mt-3 alert alert-success" role="alert">
-      Thank you for contact us. we will get back to you soon.
-    </div>
-  }
-  const CaptchaError = () => {
-    return <span className="alert alert-danger">{cErrorMsg}</span>
-  }
-  const [cresult, showCerror] = useState(false);
-  const [result, showresult] = useState(false);
+
 
   // validation form
   const {
@@ -53,9 +41,6 @@ function Contact() {
     defaultValues: { yes_i_understand: false }
   });
 
-  //  api targets
-  const apiContact = reqHost + reqContact;
-  const bearer = reqBearer;
 
   // ========= get data function =========
   const [userdata, setuserdata] = useState({
@@ -66,7 +51,6 @@ function Contact() {
   });
   let nameattr, valueattr;
   let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
   const handleInput = (e) => {
     // console.log(e)
     nameattr = e.target.name;
@@ -74,48 +58,23 @@ function Contact() {
     setuserdata({ ...userdata, [nameattr]: valueattr })
   }
 
-  let captchaToken;
 
+    //  api targets
+    const apiContact = reqHost + reqContact;
+    const bearer = reqBearer;
+  
+
+
+  let captchaToken;
   /**
    * Validate Google Captcha Response
    * @param {string} token Google Captche Token
    * @return {boolean}
    */
-  // const validateCaptcha = (token) => {
-  //     var config = {
-  //       "form_params":{
-  //         "secret": gCaptchaSecret,
-  //         "value" : token
-  //       }
-  //     };
-
-  //     const valid = false;
-  //     axios.post('https://www.google.com/recaptcha/api/siteverify',config)
-  //     .then(response => {
-  //       console.table(response.data);
-  //       valid = response.data.success;
-  //     }).catch(error => {
-  //       console.table(error);
-  //       valid = false;
-  //     });
-  //     return valid;
-  // } 
 
   // api function
   const sendEmail = (formData) => {
-    if(isCaptchaVerify){
-      // var captchaData = {
-      //   "form_params":{
-      //     "secret": gCaptchaSecret,
-      //     "value" : cToken
-      //   }
-      // };
-      // axios.post('https://www.google.com/recaptcha/api/siteverify',captchaData)
-      // .then(response => {
-      //   console.table(response.data);
-      // }).catch(error => {
-      //   console.table(error);
-      // });
+    if (isCaptchaVerify) {
       var config = {
         headers: {
           Authorization: "Bearer " + bearer,
@@ -127,23 +86,33 @@ function Contact() {
       axios.get(apiContact, config)
         .then((response) => {
           showresult(true);
-          // console.table(response.data);
         })
-        // .then((data) => console.table(data))
         .catch((error) => console.table(error));
-  
+
       reset();
       setTimeout(() => { showresult(false); }, 5000);
+
     } else {
-      setCmsg('Please verify the captcha');
       showCerror(true);
     }
   }
 
+  // result on form success
+  const [result, showresult] = useState(false);
+  const Result = () => {
+    return <div className="mt-3 alert alert-success" role="alert">
+      Thank you for contact us. we will get back to you soon.
+    </div>
+  }
+
+  // show error
+  const [cresult, showCerror] = useState(false);
+  const CaptchaError = () => {
+    return <span className="alert alert-danger">Please verify the captcha</span>
+  }
 
 
   return <>
-
     <Helmet>
       <title>Contact US | Hire Dedicated Web Developers India</title>
       <meta name="title" content="Contact US | Hire Dedicated Web Developers India" />
@@ -204,13 +173,11 @@ function Contact() {
                       {...register("name", { required: true })}
                       onChange={handleInput}
                       name="name" type="text" className="form-control" placeholder="Your name" />
-
                     {errors.name && (
                       <div className="invalid-feedback d-block">
                         Please fill your Full Name
                       </div>
                     )}
-
                   </div>
                   <div className="from-group mb-3">
                     <input
@@ -252,9 +219,10 @@ function Contact() {
                   <div className="from-group d-flex flex-wrap align-items-center justify-content-between">
                     <div className="captcha-box me-2">
                       <ReCAPTCHA
-                        sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                         sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                        //  sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                         onChange={OnCaptcha}
-                      /> 
+                      />
                       {cresult ? <CaptchaError /> : null}
                     </div>
                     <button className="mainBtn border-0 px-5 " type="submit" >Send Request</button>
