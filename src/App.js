@@ -79,7 +79,7 @@ function App() {
                             <Route path="/hire-developers">
                                 <Hireus />
                             </Route>
-                            <Route>
+                            <Route >
                                 <Home />
                             </Route>
                         </Switch>

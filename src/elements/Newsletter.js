@@ -82,7 +82,7 @@ function Newsletter(props) {
                                     name="email" type="email" placeholder="name@gmail.com" className="form-control"
                                     onChange={handleInput}
                                     />
-                                    <img src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
+                                    <img alt="pen" src={window.location.origin + '/img/pen.svg'} className="img-fluid m-auto d-table" />
                                 </div>
                                 {errors.email && (
                                     <div className="invalid-feedback d-block mb-3">
