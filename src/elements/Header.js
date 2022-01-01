@@ -3,6 +3,8 @@ import Button from './Button';
 import logo from '../image/logo.svg'
 import './Header.css'
 import { useState } from 'react';
+// import { Navbar, Nav, NavDropdown, Form, FormControl, NavItem } from 'react-bootstrap'
+
 
 function Header() {
     return (
@@ -68,16 +70,30 @@ function Header() {
                                     <li className="nav-item me-4">
                                         <NavLink activeClassName="active" className="nav-link" to="/why-us">Why Us</NavLink>
                                     </li>
-                                    
-                                    <li className="nav-item me-4">
-                                    <NavLink activeClassName="active" className="nav-link" to="/hire-developers">Hire Developer</NavLink>
 
-                                        </li>
+                                    <li className="nav-item me-4">
+                                        <NavLink activeClassName="active" className="nav-link" to="/hire-developers">Hire Developer</NavLink>
+
+                                    </li>
                                     <li className="nav-item me-4">
                                         <NavLink activeClassName="active" className="nav-link" to="/contact">Contact</NavLink>
                                     </li>
                                 </ul>
+
+
+
+
                             </div>
+{/* 
+                            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                                <Navbar.Collapse id="responsive-navbar-nav">
+                                    <Nav className="me-auto">
+                                        <Nav.Link href="/signup">Signup</Nav.Link>
+                                    </Nav>
+                                </Navbar.Collapse>
+                            </Navbar> */}
                         </nav>
                         <div className="rightIcons">
                             <ul className="d-flex flex-wrap align-items-center">

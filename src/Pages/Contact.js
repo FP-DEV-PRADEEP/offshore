@@ -4,14 +4,27 @@ import Newsletter from "../elements/Newsletter";
 import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
-import { reqHost, reqContact, reqBearer } from '../config/Config';
+import { reqHost, reqContact, reqBearer, gCaptchaSecret } from '../config/Config';
 import axios from 'axios';
-
+// googe captcha
+import ReCAPTCHA from "react-google-recaptcha";
 //  helmet js
 import { Helmet } from 'react-helmet';
 
 function Contact() {
- 
+
+    // google captcha function
+    const [isCaptchaVerify, CaptchaVerify] = useState(false);
+    function OnCaptcha(value) {
+      console.log("Captcha value:", value);
+      if(value.length > 1){
+        CaptchaVerify(true);
+      }else {
+        CaptchaVerify(false);
+      }
+    }   
+
+  // result on form success
   const Result = () => {
     return <div className="mt-3 alert alert-success" role="alert">
       Thank you for contact us. we will get back to you soon.
@@ -19,15 +32,17 @@ function Contact() {
   }
   const [result, showresult] = useState(false);
 
+  // validation form
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors }
-} = useForm({
+  } = useForm({
     defaultValues: { yes_i_understand: false }
-});
+  });
 
+  //  api targets
   const apiContact = reqHost + reqContact;
   const bearer = reqBearer;
 
@@ -48,25 +63,53 @@ function Contact() {
     setuserdata({ ...userdata, [nameattr]: valueattr })
   }
 
+  // let captchaToken;
+
+  // /**
+  //  * Validate Google Captcha Response
+  //  * @param {string} token Google Captche Token
+  //  * @return {boolean}
+  //  */
+  // const validateCaptha = async (token) => {
+  //     var config = {
+  //       "form_params":{
+  //         "secret": gCaptchaSecret,
+  //         "value" : token
+  //       }
+  //     };
+
+  //     const valid = false;
+  //     await axios.post('https://www.google.com/recaptcha/api/siteverify',config)
+  //     .then(response => {
+  //       console.table(response.data);
+  //       valid = response.data.success;
+  //     }).catch(error => {
+  //       console.table(error);
+  //       valid = false;
+  //     });
+  //     return valid;
+  // } 
+
+  // api function
   const sendEmail = (formData) => {
     var config = {
       headers: {
-          Authorization: "Bearer "+bearer,
-          Accept      : "appilication/json",
-          "Content-Type" : "application/json"
+        Authorization: "Bearer " + bearer,
+        Accept: "appilication/json",
+        "Content-Type": "application/json"
       },
-      params : userdata
+      params: userdata
     };
     // console.table(reqData);
     // axios.get(apiContact, userdata, {headers})
     axios.get(apiContact, config)
-        .then((response) => {
-            showresult(true);
-            // console.table(response.data);
-        })
-        // .then((data) => console.table(data))
-        .catch((error) => console.table(error));
-    
+      .then((response) => {
+        showresult(true);
+        // console.table(response.data);
+      })
+      // .then((data) => console.table(data))
+      .catch((error) => console.table(error));
+
     reset();
     setTimeout(() => { showresult(false); }, 5000);
   }
@@ -80,7 +123,6 @@ function Contact() {
       <meta name="title" content="Contact US | Hire Dedicated Web Developers India" />
       <meta name="description" content="Hire Dedicated Developers From India as virtual employees. We provide you best developers for your requirements which are less in cost and complete tasks on time with expertise Web Development, IoT services, Online IT Services, AR/VR Services, PHP Development, Mobile Development, .Net Development." />
     </Helmet>
-
 
     {/* <Pagecaption subtitle="Contact Us" pagetitle="We'd love to hear from you" /> */}
     <div className="contact pt-3">
@@ -146,7 +188,7 @@ function Contact() {
                   </div>
                   <div className="from-group mb-3">
                     <input
-                      {...register("phone", { required: true, maxLength: 14, minLength: 8 })}
+                      {...register("phone", { required: true, maxLength: 10, minLength: 10 })}
                       onChange={handleInput}
                       name="phone" type="tel" className="form-control" placeholder="Phone Number" />
                     {errors.phone && (
@@ -181,9 +223,14 @@ function Contact() {
                     )}
 
                   </div>
-                  <div className="from-group d-flex flex-wrap align-items-center">
-                    <div className="captcha-box"></div>
-                    <button className="mainBtn border-0 px-5" type="submit" >Send Us</button>
+                  <div className="from-group d-flex flex-wrap align-items-center justify-content-between">
+                    <div className="captcha-box me-2">
+                      <ReCAPTCHA
+                        sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                        onChange={OnCaptcha}
+                      /> 
+                    </div>
+                    <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 mt-4" type="submit" >Send Us</button>
                   </div>
                   <div className="form-group">
                     {result ? <Result /> : null}
