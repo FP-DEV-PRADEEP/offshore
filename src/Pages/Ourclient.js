@@ -30,7 +30,7 @@ function Ourclient() {
     return (
         <>
             <Helmet>
-                <title>Clients - Offshore</title>
+                <title>Our Clients | IT Offshore Solutions India</title>
                 <meta name="title" content="Our Clients | IT Offshore Solutions India" />
                 <meta name="description" content="We are a Top IT Outsourcing & Software Development Company in India. We have served thousands of satisfied clients from all over the globe in various spectrums successfully." />
             </Helmet>

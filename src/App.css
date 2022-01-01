@@ -26,10 +26,10 @@ p:empty{display:none;}
 #elevator{text-align:center;cursor:pointer;font-size:8px;font-weight:600;color:#000;width:35px;height:35px;display:flex;align-items:center;justify-content:center;box-shadow:1px 0 15px rgb(0 0 0 / 20%);border-radius:4px;background:#fff;}
 #elevator img{display:block;margin:0 auto 5px;}
 body{animation:fadeInAnimation ease 3s;animation-iteration-count:1;animation-fill-mode:forwards;}
-.sec-title h2{font-family:Gill Sans;font-style:normal;font-weight:500;font-size:19px;line-height:23px;letter-spacing:6px;text-transform:uppercase;color:#0081c8;}
-.sec-title h1{font-family:Gill Sans;font-style:normal;font-weight:bold;font-size:48px;line-height:68px;color:#251a1a;padding:10px 0 10px 0;}
+.sec-title h2 {font-family:Gill Sans;font-style:normal;font-weight:500;font-size:19px;line-height:23px;letter-spacing:6px;text-transform:uppercase;color:#0081c8;}
+.sec-title h1 {font-family:Gill Sans;font-style:normal;font-weight:bold;font-size:48px;line-height:68px;color:#251a1a;padding:10px 0 10px 0;}
 .sec-title h1 span{color:#ee334e;}
-.sec-title h3{max-width:850px;font-family:Gill Sans;font-style:normal;font-weight:900;font-size:36px;line-height:48px;color:#251a1a;padding:10px 0;}
+.innerbanner .sec-title h1, .sec-title h3{max-width:850px;font-family:Gill Sans;font-style:normal;font-weight:900;font-size:36px;line-height:48px;color:#251a1a;padding:10px 0;}
 .sec-title p{font-family:Lato;font-style:normal;font-weight:normal;font-size:18px;line-height:28px;color:#797272;}
 .sec-title.text-center h3{margin:auto !important;}
 /* clients logo */
@@ -140,7 +140,7 @@ button.slick-arrow.slick-disabled{cursor:initial !important;}
 .leftSlide .sec-title h1 span{padding:0 10px;}
 .py-padding{padding:40px 0;}
 .py-padding{padding:40px 0;}
-.sec-title h3{font-size:30px;line-height:inherit;}
+.sec-title h3, .innerbanner .sec-title h1 {font-size:30px;line-height:inherit;}
 .sec-title h2{font-size:16px;line-height:inherit;letter-spacing:3px;}
 .process{padding-top:60px;}
 .dev-title{font-size:17px;line-height:inherit;}
@@ -150,7 +150,7 @@ button.slick-arrow.slick-disabled{cursor:initial !important;}
 }
 
 
-@media (max-width:767px){.sec-title h3{font-size:24px;}
+@media (max-width:767px){.sec-title h3, .innerbanner .sec-title h1 {font-size:24px;}
 .agency-box h2{font-size:17px;line-height:inherit;}
 .agency-box h2:before{top:1px;}
 .leftSlide{padding:20px 0 !important;padding-bottom:50px !important;}

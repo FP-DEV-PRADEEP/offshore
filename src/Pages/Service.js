@@ -8,11 +8,10 @@ import { Helmet } from 'react-helmet';
 function Service() {
   return <>
     <Helmet>
-      <title>Service - Offshore</title>
+      <title>Hire Dedicated Developers | IT Offshore Solutions India</title>
       <meta name="title" content="Hire Dedicated Developers | IT Offshore Solutions India" />
-      <meta name="description" content=" Are you looking for an Expert IT Developer From India? We Provide IT Offshore Solutions For Our Clients. Hire Dedicated Developers as Virtual Employees with Expertise in Custom Web Development, Digital Marketing and More at reasonable prices." />
+      <meta name="description" content="Are you looking for an Expert IT Developer From India? We Provide Complete IT Offshore Solutions For Our Clients. Hire Dedicated Developers as Virtual Employees with Expertise in Custom Web Development, Digital Marketing and More at reasonable prices" />
     </Helmet>
-
 
     <Pagecaption subtitle={"Services"} pagetitle={"We Are Nothing Like Your Run-Of-The-Mill Outsourcing IT Agency"} />
     <div className="py-padding">

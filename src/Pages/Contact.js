@@ -119,9 +119,9 @@ function Contact() {
   return <>
 
     <Helmet>
-      <title>Contact Us - Offshore</title>
+      <title>Contact US | Hire Dedicated Web Developers India</title>
       <meta name="title" content="Contact US | Hire Dedicated Web Developers India" />
-      <meta name="description" content="Hire Dedicated Developers From India as virtual employees. We provide you best developers for your requirements which are less in cost and complete tasks on time with expertise Web Development, IoT services, Online IT Services, AR/VR Services, PHP Development, Mobile Development, .Net Development." />
+      <meta name="description" content="Hire Dedicated Developers From India as virtual employees. We provide you best developers for your requirements which are less in cost and complete tasks on time with expertise Web Development, IoT services, Online IT Services, AR/VR Services, PHP Development, Mobile Development, .Net Development" />
     </Helmet>
 
     {/* <Pagecaption subtitle="Contact Us" pagetitle="We'd love to hear from you" /> */}

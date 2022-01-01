@@ -11,7 +11,7 @@ const currentlocation = location.pathname.slice(1)
             <div className="container">
                 <div className="sec-title">
                     <h2>{props.subtitle}</h2>
-                    <h3>{props.pagetitle}</h3>
+                    <h1>{props.pagetitle}</h1>
                 </div>
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
