@@ -230,7 +230,7 @@ function Contact() {
                         onChange={OnCaptcha}
                       /> 
                     </div>
-                    <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 mt-4" type="submit" >Send Us</button>
+                    <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 " type="submit" >Send Us</button>
                   </div>
                   <div className="form-group">
                     {result ? <Result /> : null}

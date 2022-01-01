@@ -165,15 +165,15 @@ function Heroform(props) {
                     </div>
 
                     <div className="form-group d-flex justify-content-center">
+                        <div className="captcha-box">
                     <ReCAPTCHA
                         sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                         onChange={OnCaptcha}
                       /> 
-                    </div>
-                    <div className="form-group mt-3">
-                        <input disabled={!isCaptchaVerify} type="submit" className="mainBtn border-0 px-5 m-auto d-table" value="Send Us" />
-                    </div>
+                      </div>
+                      <input disabled={!isCaptchaVerify} type="submit" className="mainBtn border-0 px-4 ms-auto me-0 d-table" value="Send Us" />
 
+                    </div>
 
                     <div className="form-group mt-3">
                         {result ? <Result /> : null}
