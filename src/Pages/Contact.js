@@ -15,14 +15,21 @@ function Contact() {
 
     // google captcha function
     const [isCaptchaVerify, CaptchaVerify] = useState(false);
+    const [cToken, setCtoken] = useState('');
     function OnCaptcha(value) {
       console.log("Captcha value:", value);
       if(value.length > 1){
         CaptchaVerify(true);
+        showCerror(false);
+        setCtoken(value);
       }else {
         CaptchaVerify(false);
+        setCtoken('');
+        // showCerror(true);
       }
-    }   
+    } 
+    
+    const [cErrorMsg, setCmsg] = useState('');
 
   // result on form success
   const Result = () => {
@@ -30,6 +37,10 @@ function Contact() {
       Thank you for contact us. we will get back to you soon.
     </div>
   }
+  const CaptchaError = () => {
+    return <span className="alert alert-danger">{cErrorMsg}</span>
+  }
+  const [cresult, showCerror] = useState(false);
   const [result, showresult] = useState(false);
 
   // validation form
@@ -63,14 +74,14 @@ function Contact() {
     setuserdata({ ...userdata, [nameattr]: valueattr })
   }
 
-  // let captchaToken;
+  let captchaToken;
 
-  // /**
-  //  * Validate Google Captcha Response
-  //  * @param {string} token Google Captche Token
-  //  * @return {boolean}
-  //  */
-  // const validateCaptha = async (token) => {
+  /**
+   * Validate Google Captcha Response
+   * @param {string} token Google Captche Token
+   * @return {boolean}
+   */
+  // const validateCaptcha = (token) => {
   //     var config = {
   //       "form_params":{
   //         "secret": gCaptchaSecret,
@@ -79,7 +90,7 @@ function Contact() {
   //     };
 
   //     const valid = false;
-  //     await axios.post('https://www.google.com/recaptcha/api/siteverify',config)
+  //     axios.post('https://www.google.com/recaptcha/api/siteverify',config)
   //     .then(response => {
   //       console.table(response.data);
   //       valid = response.data.success;
@@ -92,26 +103,41 @@ function Contact() {
 
   // api function
   const sendEmail = (formData) => {
-    var config = {
-      headers: {
-        Authorization: "Bearer " + bearer,
-        Accept: "appilication/json",
-        "Content-Type": "application/json"
-      },
-      params: userdata
-    };
-    // console.table(reqData);
-    // axios.get(apiContact, userdata, {headers})
-    axios.get(apiContact, config)
-      .then((response) => {
-        showresult(true);
-        // console.table(response.data);
-      })
-      // .then((data) => console.table(data))
-      .catch((error) => console.table(error));
-
-    reset();
-    setTimeout(() => { showresult(false); }, 5000);
+    if(isCaptchaVerify){
+      // var captchaData = {
+      //   "form_params":{
+      //     "secret": gCaptchaSecret,
+      //     "value" : cToken
+      //   }
+      // };
+      // axios.post('https://www.google.com/recaptcha/api/siteverify',captchaData)
+      // .then(response => {
+      //   console.table(response.data);
+      // }).catch(error => {
+      //   console.table(error);
+      // });
+      var config = {
+        headers: {
+          Authorization: "Bearer " + bearer,
+          Accept: "appilication/json",
+          "Content-Type": "application/json"
+        },
+        params: userdata
+      };
+      axios.get(apiContact, config)
+        .then((response) => {
+          showresult(true);
+          // console.table(response.data);
+        })
+        // .then((data) => console.table(data))
+        .catch((error) => console.table(error));
+  
+      reset();
+      setTimeout(() => { showresult(false); }, 5000);
+    } else {
+      setCmsg('Please verify the captcha');
+      showCerror(true);
+    }
   }
 
 
@@ -229,8 +255,9 @@ function Contact() {
                         sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                         onChange={OnCaptcha}
                       /> 
+                      {cresult ? <CaptchaError /> : null}
                     </div>
-                    <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 " type="submit" >Send Us</button>
+                    <button className="mainBtn border-0 px-5 " type="submit" >Send Request</button>
                   </div>
                   <div className="form-group">
                     {result ? <Result /> : null}
