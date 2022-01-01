@@ -6,7 +6,24 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { reqHost, reqHireDev, reqBearer } from '../config/Config';
 import axios from 'axios';
+// googe captcha
+import ReCAPTCHA from "react-google-recaptcha";
+
 function Hireus() {
+
+     // google captcha function
+     const [isCaptchaVerify, CaptchaVerify] = useState(false);
+     function OnCaptcha(value) {
+       console.log("Captcha value:", value);
+       if(value.length > 1){
+         CaptchaVerify(true);
+       }else {
+         CaptchaVerify(false);
+       }
+     }   
+
+
+    //  result on success
     const Result = () => {
         return <div className="mt-3 alert alert-success" role="alert">
             Thank you for contact us. we will get back to you soon.
@@ -36,8 +53,7 @@ function Hireus() {
     });
 
     let nameattr, valueattr;
-    let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+    let emailPattern = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}/;
     const handleInput = (e) => {
         // console.log(e)
         nameattr = e.target.name;
@@ -132,9 +148,9 @@ function Hireus() {
                                         <div className="col-md-6 mb-3">
                                             <div className="from-group">
 
-                                                <select 
+                                                <select
                                                     {...register("post", { required: true })} onChange={handleInput}
-                                                     className="form-control" >
+                                                    className="form-control" >
                                                     <option value=""  >Select Category</option>
                                                     <option value="Select Category">Select Category</option>
                                                     <option value="hire-seo-expert"> Hire SEO Expert From India</option>
@@ -157,7 +173,7 @@ function Hireus() {
                                                     <option value="hire-drupal-developer"> Hire Drupal Developer</option>
                                                     <option value="hire-iphone-app-developer"> Hire iPhone App Developer</option>
                                                     <option value="hire-android-developer"> Hire Android App Developer</option>
-                                                </select> 
+                                                </select>
                                                 {errors.post && (
                                                     <div className="invalid-feedback d-block">
                                                         Please select your Developer Category
@@ -193,12 +209,20 @@ function Hireus() {
                                                 )}
                                             </div>
                                         </div>
+                                    </div>
 
+                                    <div className="from-group d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+                                        <div className="captcha-box me-2 ">
+                                            <ReCAPTCHA
+                                                // sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI "
+                                                sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                                                onChange={OnCaptcha}
+                                            />
+                                        </div>
+                                        <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 mt-3  ms-md-auto d-table" type="submit" >Send Us</button>
                                     </div>
-                                    <div className="from-group d-flex flex-wrap align-items-center">
-                                        <div className="captcha-box"></div>
-                                        <button className="mainBtn border-0 px-5  ms-md-auto d-table" type="submit" >Send Us</button>
-                                    </div>
+
+
                                     <div className="form-group">
                                         {result ? <Result /> : null}
                                     </div>

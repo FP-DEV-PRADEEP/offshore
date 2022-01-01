@@ -1,10 +1,22 @@
 import { useState } from "react";
 import { React } from "react";
 import { useForm } from "react-hook-form";
-import {reqHost,reqContact, reqSubscribe, reqBearer} from '../config/Config';
+import { reqHost, reqContact, reqSubscribe, reqBearer } from '../config/Config';
 import axios from 'axios';
+// googe captcha
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Heroform(props) {
+    // google captcha function
+    const [isCaptchaVerify, CaptchaVerify] = useState(false);
+    function OnCaptcha(value) {
+      console.log("Captcha value:", value);
+      if(value.length > 1){
+        CaptchaVerify(true);
+      }else {
+        CaptchaVerify(false);
+      }
+    }  
 
     // ========= result success message =========
     const Result = () => {
@@ -33,7 +45,7 @@ function Heroform(props) {
     });
 
     let nameattr, valueattr;
-    let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let emailPattern = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}/;
     const handleInput = (e) => {
         // console.log(e)
         nameattr = e.target.name;
@@ -43,23 +55,23 @@ function Heroform(props) {
     const apiContact = reqHost + reqContact;
     const bearer = reqBearer;
     const axiosClient = axios.create({
-        baseURL : apiContact,
-        method : 'POST',
-        headers : {
-            'Authorization': 'Bearer '+bearer,
-            'Accept'       : 'appilication/json',
-            'Content-Type' : 'application/json'
+        baseURL: apiContact,
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + bearer,
+            'Accept': 'appilication/json',
+            'Content-Type': 'application/json'
         }
     });
     // ========= send email =========
     const sendEmail = (formData) => {
         var config = {
             headers: {
-                Authorization: "Bearer "+bearer,
-                Accept      : "appilication/json",
-                "Content-Type" : "application/json"
+                Authorization: "Bearer " + bearer,
+                Accept: "appilication/json",
+                "Content-Type": "application/json"
             },
-            params : userdata
+            params: userdata
         };
         // console.table(reqData);
         // axios.get(apiContact, userdata, {headers})
@@ -70,10 +82,10 @@ function Heroform(props) {
             })
             // .then((data) => console.table(data))
             .catch((error) => console.table(error));
-        
+
         reset();
         setTimeout(() => { showresult(false); }, 5000);
-        
+
 
         // setTimeout(() => {
         //     showresult(true);
@@ -152,8 +164,14 @@ function Heroform(props) {
                         )}
                     </div>
 
-                    <div className="form-group">
-                        <input type="submit" className="mainBtn border-0 px-5" value="Send Us" />
+                    <div className="form-group d-flex justify-content-center">
+                    <ReCAPTCHA
+                        sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                        onChange={OnCaptcha}
+                      /> 
+                    </div>
+                    <div className="form-group mt-3">
+                        <input disabled={!isCaptchaVerify} type="submit" className="mainBtn border-0 px-5 m-auto d-table" value="Send Us" />
                     </div>
 
 

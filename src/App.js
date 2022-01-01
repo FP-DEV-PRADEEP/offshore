@@ -47,40 +47,39 @@ function App() {
                 <Router>
                     <Header />
                     {/* switch cases */}
-
                     <Scroll >
-                    <Switch>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                        <Route path="/why-us">
-                            <Whyus />
-                        </Route>
-                        <Route path="/services">
-                            <Service />
-                        </Route>
-                        <Route exact path="/our-clients">
-                            <Ourclient />
-                        </Route>
-                        <Route path="/our-clients/:clientid">
-                            <Clientdetail />
-                        </Route>
-                        <Route path="/contact">
-                            <Contact />
-                        </Route>
-                        <Route path="/privacy-policy">
-                            <Privacypolicy />
-                        </Route>
-                        <Route path="/terms-and-condition">
-                            <Terms />
-                        </Route>
-                        <Route path="/hire-developers">
-                            <Hireus />
-                        </Route>
-                        <Route path="/page-not-found"> 
-                            <Notfound /> 
-                        </Route>
-                    </Switch>
+                        <Switch>
+                            <Route exact path="/">
+                                <Home />
+                            </Route>
+                            <Route path="/why-us">
+                                <Whyus />
+                            </Route>
+                            <Route path="/services">
+                                <Service />
+                            </Route>
+                            <Route exact path="/our-clients">
+                                <Ourclient />
+                            </Route>
+                            <Route path="/our-clients/:clientid">
+                                <Clientdetail />
+                            </Route>
+                            <Route path="/contact">
+                                <Contact />
+                            </Route>
+                            <Route path="/privacy-policy">
+                                <Privacypolicy />
+                            </Route>
+                            <Route path="/terms-and-condition">
+                                <Terms />
+                            </Route>
+                            <Route path="/hire-developers">
+                                <Hireus />
+                            </Route>
+                            <Route>
+                                <Notfound />
+                            </Route>
+                        </Switch>
                     </Scroll>
                     {/* footer */}
                     <Footer />
