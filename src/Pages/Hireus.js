@@ -4,32 +4,30 @@ import Newsletter from "../elements/Newsletter";
 import { Helmet } from 'react-helmet';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { reqHost, reqHireDev, reqBearer } from '../config/Config';
+import { reqHost, reqHireDev, reqContact, reqBearer } from '../config/Config';
 import axios from 'axios';
 // googe captcha
 import ReCAPTCHA from "react-google-recaptcha";
 
 function Hireus() {
 
-     // google captcha function
-     const [isCaptchaVerify, CaptchaVerify] = useState(false);
-     function OnCaptcha(value) {
-       console.log("Captcha value:", value);
-       if(value.length > 1){
-         CaptchaVerify(true);
-       }else {
-         CaptchaVerify(false);
-       }
-     }   
-
-
-    //  result on success
-    const Result = () => {
-        return <div className="mt-3 alert alert-success" role="alert">
-            Thank you for contact us. we will get back to you soon.
-        </div>
+    // google captcha function
+    const [isCaptchaVerify, CaptchaVerify] = useState(false);
+    const [cToken, setCtoken] = useState('');
+    function OnCaptcha(value) {
+        console.log("Captcha value:", value);
+        if (value.length > 1) {
+            CaptchaVerify(true);
+            showCerror(false);
+            setCtoken(value);
+        } else {
+            CaptchaVerify(false);
+            setCtoken('');
+            // showCerror(true);
+        }
     }
-    const [result, showresult] = useState(false);
+
+    // validation form
     const {
         register,
         handleSubmit,
@@ -38,8 +36,7 @@ function Hireus() {
     } = useForm({
         defaultValues: { yes_i_understand: false }
     });
-    const apiContact = reqHost + reqHireDev;
-    const bearer = reqBearer;
+
 
     // ========= get data function =========
     const [userdata, setuserdata] = useState({
@@ -52,46 +49,78 @@ function Hireus() {
         details: ""
     });
 
+
     let nameattr, valueattr;
-    let emailPattern = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}/;
+    let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const handleInput = (e) => {
         // console.log(e)
         nameattr = e.target.name;
         valueattr = e.target.value;
         setuserdata({ ...userdata, [nameattr]: valueattr })
-        // 
-        console.log(userdata);
     }
+
+
+    //  api targets
+    const apiContact = reqHost + reqContact;
+    const bearer = reqBearer;
+
+
+    let captchaToken;
+    /**
+     * Validate Google Captcha Response
+     * @param {string} token Google Captche Token
+     * @return {boolean}
+     */
+
+    // api function
     const sendEmail = (formData) => {
-        var config = {
-            headers: {
-                Authorization: "Bearer " + bearer,
-                Accept: "appilication/json",
-                "Content-Type": "application/json"
-            },
-            params: userdata
-        };
-        // console.table(reqData);
-        // axios.get(apiContact, userdata, {headers})
-        axios.get(apiContact, config)
-            .then((response) => {
-                showresult(true);
-                console.table(response.data);
-            })
-            // .then((data) => console.table(data))
-            .catch((error) => {
-                console.log(error.response.data.message);
-                console.table(error.response.data.errors);
-            });
-        reset();
-        setTimeout(() => { showresult(false); }, 5000);
+        if (isCaptchaVerify) {
+            var config = {
+                headers: {
+                    Authorization: "Bearer " + bearer,
+                    Accept: "appilication/json",
+                    "Content-Type": "application/json"
+                },
+                params: userdata
+            };
+            axios.get(apiContact, config)
+                .then((response) => {
+                    showresult(true);
+                })
+                .catch((error) => console.table(error));
+
+            reset();
+            setTimeout(() => { showresult(false); }, 5000);
+
+        } else {
+            showCerror(true);
+        }
     }
+
+    // result on form success
+    const [result, showresult] = useState(false);
+    const Result = () => {
+        return <div className="mt-3 alert alert-success" role="alert">
+            Thank you for contact us. we will get back to you soon.
+        </div>
+    }
+
+    // show error
+    const [cresult, showCerror] = useState(false);
+    const CaptchaError = () => {
+        return <span className="alert alert-danger captchaerror">Please verify the captcha</span>
+    }
+
 
     return <>
         <Helmet>
-            <title>Hire Developer</title>
+            <title>Hire Dedicated Website Developer India | Hire Experience PHP Experts</title>
+            <meta name="title" content="Hire Dedicated Website Developer India | Hire Experience PHP Experts" />
+            <meta name="description" content="Are you looking to Hire Dedicated Developers from India? IT Offshore Solution Team Offers Best Dedicated and Certified Developers and Programmers with Experience in Different Technology on Full Time, Part Time, Hourly Basis. Get in touch now" />
         </Helmet>
-        <Pagecaption subtitle="Hire Dedicated UI/UX Designers & Developer and SEO Experts" pagetitle="Hire Developer" />
+
+
+        <Pagecaption subtitle="Hire Dedicated UI Designer, Developer and SEO Experts" pagetitle="Hire Dedicated Developer" />
         <div className="contact hire-devs pt-3">
             <div className="container">
                 <div className="contactfrom">
@@ -218,13 +247,15 @@ function Hireus() {
                                                 sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                                                 onChange={OnCaptcha}
                                             />
+
+                                            {cresult ? <CaptchaError /> : null}
                                         </div>
-                                        <button disabled={!isCaptchaVerify} className="mainBtn border-0 px-5 mt-1  ms-md-auto d-table" type="submit" >Send Us</button>
+                                        <button className="mainBtn border-0 px-5 mt-1  ms-md-auto d-table" type="submit" >Send Us</button>
                                     </div>
 
 
                                     <div className="form-group">
-                                        {result ? <Result /> : null}
+
                                     </div>
                                 </form>
                             </div>

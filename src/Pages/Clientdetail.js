@@ -13,6 +13,14 @@ function Clientdetail() {
     const { clientid } = useParams();
     const thisclient = Clientsdata.find((prod) => prod.sitename === clientid);
 
+    /**
+     * for import all acpects from this client to avoid {thisclient.technologies}
+     * @param {string}  thisclient // this clients data
+     *
+     */
+
+    const { beforesiteimg, aftersiteimg, description, technologies } = thisclient;
+
 
     return <>
 
@@ -22,7 +30,7 @@ function Clientdetail() {
 
                 <div className="before change-title">
                     <div className="bimg-left">
-                        <img alt="img" src={thisclient.beforesiteimg} className='img-fluid' alt="images" />
+                        <img alt="img" src={beforesiteimg} className='img-fluid' alt="images" />
                     </div>
                     <div className="chnages-title">
                         <h2>Before</h2>
@@ -34,20 +42,19 @@ function Clientdetail() {
                         <h2>After</h2>
                     </div>
                     <div className="bimg-left">
-                        <img alt="img" src={thisclient.aftersiteimg} className='img-fluid' alt="images" />
+                        <img alt="img" src={aftersiteimg} className='img-fluid' alt="images" />
                     </div>
                 </div>
 
                 {/* additional info */}
                 <div className="additonalinfo">
                     <h3>About the Project</h3>
-                    <p>{thisclient.description}</p>
+                    <p>{description}</p>
                 </div>
                 <div className="additonalinfo">
                     <h3>Used Technologies</h3>
                     <ul>
-                        {thisclient.technologies}
-
+                        {technologies}
                     </ul>
                     <Button text='Visit Site' addclass="mt-4 mt-md-5 mb-2 mb-md-0 " href='#' />
                 </div>

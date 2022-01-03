@@ -7,104 +7,68 @@ import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
 
 function Heroform(props) {
-    // google captcha function
-    const [isCaptchaVerify, CaptchaVerify] = useState(false);
-    const [cToken, setCtoken] = useState('');
-    function OnCaptcha(value) {
-      console.log("Captcha value:", value);
-      if(value.length > 1){
-        CaptchaVerify(true);
-        showCerror(false);
-        setCtoken(value);
-      }else {
-        CaptchaVerify(false);
-        setCtoken('');
-        // showCerror(true);
-      }
-    } 
-     
-    const [cErrorMsg, setCmsg] = useState('');
-    const [cresult, showCerror] = useState(false);
-    // const [result, showresult] = useState(false);
-    
 
-    // ========= result success message =========
-    const Result = () => {
-        return <div className="mt-3 alert alert-success" role="alert">
-            Your Message has been sent. we will back to you soon.
-        </div>
+
+      // google captcha function
+  const [isCaptchaVerify, CaptchaVerify] = useState(false);
+  const [cToken, setCtoken] = useState('');
+  function OnCaptcha(value) {
+    console.log("Captcha value:", value);
+    if (value.length > 1) {
+      CaptchaVerify(true);
+      showCerror(false);
+      setCtoken(value);
+    } else {
+      CaptchaVerify(false);
+      setCtoken('');
+      // showCerror(true);
     }
-    const [result, showresult] = useState(false);
+  }
 
-    const CaptchaError = () => {
-        return <span className="alert alert-danger">{cErrorMsg}</span>
-      }
-   
+  // validation form
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm({
+    defaultValues: { yes_i_understand: false }
+  });
 
-    // ========= react hook form validation function =========
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors }
-    } = useForm({
-        defaultValues: { yes_i_understand: false }
-    });
 
-    // ========= get data function =========
-    const [userdata, setuserdata] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-    });
+  // ========= get data function =========
+  const [userdata, setuserdata] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  let nameattr, valueattr;
+  let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const handleInput = (e) => {
+    // console.log(e)
+    nameattr = e.target.name;
+    valueattr = e.target.value;
+    setuserdata({ ...userdata, [nameattr]: valueattr })
+  }
 
-    let nameattr, valueattr;
-    let emailPattern = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}/;
-    const handleInput = (e) => {
-        // console.log(e)
-        nameattr = e.target.name;
-        valueattr = e.target.value;
-        setuserdata({ ...userdata, [nameattr]: valueattr })
-    }
+
+    //  api targets
     const apiContact = reqHost + reqContact;
     const bearer = reqBearer;
+  
 
 
-    let captchaToken;
-
+  let captchaToken;
   /**
    * Validate Google Captcha Response
    * @param {string} token Google Captche Token
    * @return {boolean}
    */
-
-
-    const axiosClient = axios.create({
-        baseURL: apiContact,
-        method: 'POST',
-        headers: {
-            'Authorization': 'Bearer ' + bearer,
-            'Accept': 'appilication/json',
-            'Content-Type': 'application/json'
-        }
-    });
-
-    // api function
+ 
+  // api function
   const sendEmail = (formData) => {
-    if(isCaptchaVerify){
-      // var captchaData = {
-      //   "form_params":{
-      //     "secret": gCaptchaSecret,
-      //     "value" : cToken
-      //   }
-      // };
-      // axios.post('https://www.google.com/recaptcha/api/siteverify',captchaData)
-      // .then(response => {
-      //   console.table(response.data);
-      // }).catch(error => {
-      //   console.table(error);
-      // });
+    if (isCaptchaVerify) {
       var config = {
         headers: {
           Authorization: "Bearer " + bearer,
@@ -116,18 +80,34 @@ function Heroform(props) {
       axios.get(apiContact, config)
         .then((response) => {
           showresult(true);
-          // console.table(response.data);
         })
-        // .then((data) => console.table(data))
         .catch((error) => console.table(error));
-  
+
       reset();
       setTimeout(() => { showresult(false); }, 5000);
+
     } else {
-      setCmsg('Please verify the captcha');
       showCerror(true);
     }
   }
+
+  // result on form success
+  const [result, showresult] = useState(false);
+  const Result = () => {
+    return <div className="mt-3 alert alert-success" role="alert">
+      Thank you for contact us. we will get back to you soon.
+    </div>
+  }
+
+  // show error
+  const [cresult, showCerror] = useState(false);
+  const CaptchaError = () => {
+    return <span className="alert alert-danger captchaerror">Please verify the captcha</span>
+  }
+
+
+
+
 
 
     return <>
@@ -199,14 +179,16 @@ function Heroform(props) {
                     <div className="form-group d-flex justify-content-center">
                         <div className="captcha-box">
                     <ReCAPTCHA
-                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                        // sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                        // sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                        sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                         onChange={OnCaptcha}
                       /> 
+                      
                       </div>
                       <input type="submit" className="mainBtn border-0 px-4 ms-auto me-0 d-table" value="Send Us" />
 
                     </div>
+                    {cresult ? <CaptchaError /> : null}
 
                     <div className="form-group mt-3">
                         {result ? <Result /> : null}

@@ -20,6 +20,10 @@ footer h3{font-family:Gill Sans;font-style:normal;font-weight:500;font-size:23px
 .copyright p{font-family:Lato;font-style:normal;font-weight:normal;font-size:14px;line-height:32px;/* identical to box height,or 229% */
  color:#907F9F;text-align:center;}
 .copyright{background:#0B0D28;padding:10px 0;}
+.footercontact a:hover p {
+    color: #ee334e !important;
+}
+
 
 @media ( max-width:1199px){
     .footer-links {

@@ -12,7 +12,6 @@ import Header from './elements/Header';
 import Footer from './elements/Footer';
 import Whyus from './Pages/Whyus';
 
-
 // detail page
 import Ourclient from './Pages/Ourclient';
 import Clientdetail from './Pages/Clientdetail';
@@ -35,9 +34,6 @@ function App() {
         setpreload(false);
     }, 1500); // <-- time in milliseconds
 
-
-
-    
     return (
         <div className="App"   >
             <Helmet>
@@ -45,9 +41,9 @@ function App() {
                 <meta name="title" content="Leading Offshore IT Staffing Company In India | IT Offshore Solutions" />
                 <meta name="description" content="We are a top IT outsourcing & software development company as we have served thousands of satisfied clients from all over the globe in various spectrums successfully.We are a Full-Service Software Development Leading Offshore IT Staffing Company In India. Offers Complete Web Development, IoT Services, Online IT Services, AR/VR Services and also provides Mobile App Development, at affordable prices. Talk to us now on +91-9983333334" />
             </Helmet>
-
-            {preload ? <Preload /> :
-                <Router>
+            {preload
+                ? <Preload />
+                : <Router>
                     <Header />
                     {/* switch cases */}
                     <Scroll >
@@ -92,3 +88,4 @@ function App() {
     );
 }
 export default App;
+ 
