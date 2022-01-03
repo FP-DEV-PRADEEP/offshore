@@ -29,8 +29,6 @@ function Contact() {
     }
   }
 
-
-
   // validation form
   const {
     register,
@@ -49,6 +47,8 @@ function Contact() {
     phone: "",
     message: "",
   });
+
+
   let nameattr, valueattr;
   let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const handleInput = (e) => {
@@ -59,10 +59,9 @@ function Contact() {
   }
 
 
-    //  api targets
-    const apiContact = reqHost + reqContact;
-    const bearer = reqBearer;
-  
+  //  api targets
+  const apiContact = reqHost + reqContact;
+  const bearer = reqBearer;
 
 
   let captchaToken;
@@ -219,8 +218,8 @@ function Contact() {
                   <div className="from-group d-flex flex-wrap align-items-center justify-content-between">
                     <div className="captcha-box me-2">
                       <ReCAPTCHA
-                         sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                        //  sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                        // sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                         sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                         onChange={OnCaptcha}
                       />
                       {cresult ? <CaptchaError /> : null}

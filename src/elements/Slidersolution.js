@@ -1,16 +1,16 @@
 import Slider from "../../node_modules/react-slick/dist/react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick";
-
+import LazyLoad from "react-lazyload";
 
 function Slidersolution() {
     let settings = {
         dots: false,
-        arrows :true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
+        arrows: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
     }
     return <>
         <Slider {...settings} >
@@ -25,7 +25,9 @@ function Slidersolution() {
                     </div>
                 </div>
                 <div className="rightSlide">
-                    <img alt="img" src={window.location.origin + '/img/solution.png'} className="img-fluid m-auto d-table" />
+                    <LazyLoad once>
+                        <img alt="img" src={window.location.origin + '/img/solution.jpg'} className="img-fluid m-auto d-table" />
+                    </LazyLoad>
                 </div>
             </div>
         </Slider>

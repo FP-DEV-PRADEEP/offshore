@@ -3,17 +3,17 @@ import Hiredev from "../elements/Hiredev";
 import Newsletter from "../elements/Newsletter";
 import Slidersolution from "../elements/Slidersolution";
 import { BrowserRouter as Switch, Route, NavLink } from 'react-router-dom';
-//  helmet js
+import LazyLoad from "react-lazyload";
 import { Helmet } from 'react-helmet';
 
 function Home(props) {
 
     return <>
         <Helmet>
-            <title>Offshore</title>
+            <title>The Leading Offshore IT Staffing Company In India</title>
             <meta name="title" content="Leading Offshore IT Staffing Company In India | IT Offshore Solutions" />
             <meta name="description" content="We are a top IT outsourcing & software development company as we have served thousands of satisfied clients from all over the globe in various spectrums successfully.We are a Full-Service Software Development Leading Offshore IT Staffing Company In India. Offers Complete Web Development, IoT Services, Online IT Services, AR/VR Services and also provides Mobile App Development, at affordable prices. Talk to us now on +91-9983333334" />
-           <link rel="canonical" href="https://itoffshoresolutions.com" />
+            <link rel="canonical" href="https://itoffshoresolutions.com" />
         </Helmet>
 
         <Hero />
@@ -21,7 +21,9 @@ function Home(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5">
-                        <img alt="img" src={window.location.origin + '/img/certified-dev.png'} className="img-fluid m-auto d-table" />
+                        <LazyLoad once>
+                            <img alt="img" src={window.location.origin + '/img/certified-dev.png'} className="img-fluid m-auto d-table" />
+                        </LazyLoad>
                     </div>
                     <div className="col-lg-7">
                         <div className="sec-title">
@@ -166,7 +168,9 @@ function Home(props) {
 
         {/* process */}
         <div className="process blue-bg py-padding position-relative ">
-            <img alt="img" src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
+            <LazyLoad once>
+                <img alt="img" src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
+            </LazyLoad>
             <div className="container">
                 <div className="process-sec">
                     <div className="proleft">
@@ -190,7 +194,9 @@ function Home(props) {
 
                     </div>
                     <div className="proright">
-                        <img alt="img" src={window.location.origin + '/img/proccess.png'} className="img-fluid m-auto d-table" />
+                        <LazyLoad once>
+                            <img alt="img" src={window.location.origin + '/img/proccess.png'} className="img-fluid m-auto d-table" />
+                        </LazyLoad>
                     </div>
                 </div>
             </div>
@@ -285,7 +291,6 @@ function Home(props) {
                 </div>
             </div>
         </div>
-
         {/* hire devs */}
         <Hiredev />
 
