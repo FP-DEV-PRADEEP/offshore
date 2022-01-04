@@ -75,8 +75,11 @@ function App() {
                             <Route path="/hire-developers">
                                 <Hireus />
                             </Route>
-                            <Route >
-                                <Home />
+                            <Route path="*">
+                                <Notfound />
+                            </Route>
+                            <Route>
+                                <Notfound />
                             </Route>
                         </Switch>
                     </Scroll>

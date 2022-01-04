@@ -50,7 +50,7 @@ function Contact() {
 
 
   let nameattr, valueattr;
-  let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const handleInput = (e) => {
     // console.log(e)
     nameattr = e.target.name;
@@ -224,7 +224,7 @@ function Contact() {
                       />
                       {cresult ? <CaptchaError /> : null}
                     </div>
-                    <button className="mainBtn border-0 px-5 " type="submit" >Send Request</button>
+                    <button className="mainBtn border-0 px-5 m-auto d-table ms-lg-auto me-auto me-md-0 " type="submit" >Send Request</button>
                   </div>
                   <div className="form-group">
                     {result ? <Result /> : null}

@@ -7,6 +7,7 @@ import ClientsData from './Clientsdata';
 //  helmet js
 import { Helmet } from 'react-helmet';
 
+
 function Ourclient() {
     const clients = ClientsData.map(cleints => {
         return (
@@ -14,7 +15,7 @@ function Ourclient() {
             <div className="col-lg-4 col-sm-6 mb-4" key={cleints.sitename}>
                 <div className="clientbox">
                     <div className="clientslogo">
-                        <img src={cleints.clientlogo} alt="" />
+                    <Link to={`/our-clients/${cleints.sitename}`}> <img src={cleints.clientlogo} alt={cleints.sitename} /></Link>
                     </div>
                     <p>{cleints.description}</p>
                     <Link
@@ -36,7 +37,7 @@ function Ourclient() {
             </Helmet>
 
 
-            <Pagecaption subtitle="Our Client" pagetitle="All Hi5 clients are 100% satisfied" />
+            <Pagecaption subtitle="Our Client" pagetitle="All Our Clients Are 100% Satisfied With Our Offshore Resources" />
             <div className="py-padding">
                 <div className="container">
                     <div className="row">

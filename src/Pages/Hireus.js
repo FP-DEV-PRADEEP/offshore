@@ -51,7 +51,7 @@ function Hireus() {
 
 
     let nameattr, valueattr;
-    let emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const handleInput = (e) => {
         // console.log(e)
         nameattr = e.target.name;
@@ -110,8 +110,6 @@ function Hireus() {
     const CaptchaError = () => {
         return <span className="alert alert-danger captchaerror">Please verify the captcha</span>
     }
-
-
     return <>
         <Helmet>
             <title>Hire Dedicated Website Developer India | Hire Experience PHP Experts</title>
@@ -119,15 +117,19 @@ function Hireus() {
             <meta name="description" content="Are you looking to Hire Dedicated Developers from India? IT Offshore Solution Team Offers Best Dedicated and Certified Developers and Programmers with Experience in Different Technology on Full Time, Part Time, Hourly Basis. Get in touch now" />
         </Helmet>
 
-
         <Pagecaption subtitle="Hire Dedicated UI Designer, Developer and SEO Experts" pagetitle="Hire Dedicated Developer" />
-        <div className="contact hire-devs pt-3">
+        <div className="py-padding">
+            <div className="container">
+                <p className="runningtext">As a celebrated name in our industry, we at IT Offshore Solution have offered technical assistance to countless new enterprises with regards to boosting their IT -expertise. allowing them to comprehensively deal with all scales of software  or custom web development requirements of their patrons."</p>
+            </div>
+        </div>
+        <div className="contact hire-devs">
             <div className="container">
                 <div className="contactfrom">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="form-right">
-                                <h3 className="text-center mb-0 mt-3 mt-lg-0 mb-md-3">Hire Developer Form</h3>
+                                <h3 className="text-center mb-0 mt-3 mt-lg-0 mb-md-3">Hire Us</h3>
                                 <form onSubmit={handleSubmit(sendEmail)} >
                                     <div className="row" >
                                         <div className="col-md-6 mb-1 mb-md-3">

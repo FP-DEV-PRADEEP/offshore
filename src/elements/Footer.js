@@ -1,8 +1,9 @@
 import logofooter from '../image/logo-footer.svg';
 import './Footer.css'
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
-
 function Footer() {
+
+let currentYear = new Date().getFullYear();
     return (
         <>
             <footer>
@@ -10,7 +11,6 @@ function Footer() {
                     <div className="footerinner d-flex  flex-wrap justify-content-between">
                         <div className="footer-contact">
                             <h3>Get In Touch</h3>
-
                             <div className="footercontact">
                                 <ul>
                                     <li>
@@ -32,14 +32,8 @@ function Footer() {
                                 </ul>
                             </div>
                         </div>
-
-
                         <div className="footer-des">
-
-
-
                             <NavLink to="/"><img alt="IT Offshore Solutions" src={logofooter} className="img-fluid mb-3" alt="" /></NavLink>
-
                             <p>A OffShore stays ahead of the curve with digital marketing trends. Our success has us leading the pack amongst.</p>
                             <ul className="d-flex flex-wrap justify-content-md-center align-items-center mt-4">
                                 <li>
@@ -63,19 +57,7 @@ function Footer() {
                                     </a>
                                 </li>
                             </ul>
-
                         </div>
-                        {/* <div className="footer-links">
-                            <h3>PRODUCT</h3>
-                            <ul>
-                                <li><a href="javascript:void(0)">Discover features</a></li>
-                                <li><a href="javascript:void(0)">CMS integration</a></li>
-                                <li><a href="javascript:void(0)">Customers</a></li>
-                                <li><a href="javascript:void(0)">Weekly sessions</a></li>
-                                <li><a href="javascript:void(0)">Free trials</a></li>
-                                <li><a href="javascript:void(0)">What's next ?</a></li>
-                            </ul>
-                        </div> */}
                         <div className="footer-links">
                             <h3>COMPANY</h3>
                             <ul>
@@ -92,11 +74,10 @@ function Footer() {
             </footer>
             <div className="copyright">
                 <div className="container">
-                    <p>© 2021, All Rights Reserved</p>
+                    <p>© 2021 - {currentYear} , All Rights Reserved</p>
                 </div>
             </div>
         </>
     );
 }
-
 export default Footer;
