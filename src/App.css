@@ -29,7 +29,7 @@ body{animation:fadeInAnimation ease 3s;animation-iteration-count:1;animation-fil
 .sec-title h2{font-family:Gill Sans;font-style:normal;font-weight:500;font-size:19px;line-height:23px;letter-spacing:6px;text-transform:uppercase;color:#0081c8;}
 .sec-title h1{font-family:Gill Sans;font-style:normal;font-weight:bold;font-size:48px;line-height:68px;color:#251a1a;padding:10px 0 10px 0;}
 .sec-title h1 span{color:#ee334e;}
-.innerbanner .sec-title h1,.sec-title h3{max-width:850px;font-family:Gill Sans;font-style:normal;font-weight:900;font-size:36px;line-height:48px;color:#251a1a;padding:10px 0;}
+.innerbanner .sec-title h1,.sec-title h3{  text-transform: capitalize; max-width:850px;font-family:Gill Sans;font-style:normal;font-weight:900;font-size:36px;line-height:48px;color:#251a1a;padding:10px 0;}
 .sec-title p{font-family:Lato;font-style:normal;font-weight:normal;font-size:18px;line-height:28px;color:#797272;}
 .sec-title.text-center h3{margin:auto !important;}
 /* clients logo */
@@ -46,10 +46,10 @@ body{animation:fadeInAnimation ease 3s;animation-iteration-count:1;animation-fil
 .mobiledev .ser-ico{background:rgba(155,44,249,0.06);}
 .netdev .ser-ico{background:rgba(0,129,200,0.08);}
 .marketdev .ser-ico{background:rgba(235,160,32,0.15);}
-.certified-devs img{width:100%;height:100%;}
+.certified-devs img{width:100%;height:100%;object-fit: contain;}
 .tooltip-menu{padding:15px;background:#00a651;border-radius:10px;min-width:172px;position:absolute;right:40px;top:-40px;z-index:9;display:none;}
 .tooltip-menu:after{content:"";width:15px;height:15px;background:#00a651;position:absolute;top:66px;right:-8px;transform:rotate(45deg);}
-.phpdev .tooltip-menu. .phpdev .tooltip-menu:after{background:#ee334e;}
+.phpdev .tooltip-menu, .phpdev .tooltip-menu:after{background:#ee334e;}
 .mobiledev .tooltip-menu,.mobiledev .tooltip-menu:after{background:#9b2cf9;}
 .netdev .tooltip-menu,.netdev .tooltip-menu:after{background:#0081c8;}
 .marketdev .tooltip-menu,.marketdev .tooltip-menu:after{background:#fcb131;}
@@ -58,7 +58,7 @@ body{animation:fadeInAnimation ease 3s;animation-iteration-count:1;animation-fil
 .tooltip-menu li a{color:#fff;display:inline-block;}
 .toogletip{padding:5px;cursor:pointer;}
 .toogletip:hover + .tooltip-menu,.tooltip-menu:hover{display:block;}
-/* processs */
+/* processs */ 
 .py-padding{padding:75px 0;}
 .blue-bg{background:#0081c8;}
 .process-sec{display:flex;align-items:center;width:100%;}
@@ -173,6 +173,10 @@ button.slick-arrow.slick-disabled{cursor:initial !important;}
 .form-right .from-group.d-flex{display:block !important;}
 .form-right .from-group.d-flex .captcha-box{margin:auto !important;}
 .form-right .from-group.d-flex .mainBtn{margin:auto !important;margin-top:15px !important;}
+.runningtext {
+    font-size: 18px;
+    line-height: 32px;
+}
 }
 @media ( max-width:430px){.heroformOuter .captcha-box{max-width:100% !important;max-height:65px;margin-top:-15px;}
 .heroformOuter .captcha-box > div{margin:0 !important;display:table !important;-webkit-transform-origin:0 !important;}
