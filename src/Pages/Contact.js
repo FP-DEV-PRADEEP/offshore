@@ -217,14 +217,15 @@ function Contact() {
                   </div>
                   <div className="from-group d-flex flex-wrap align-items-center justify-content-between">
                     <div className="captcha-box me-2">
-                      <ReCAPTCHA
-                        // sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                         sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
+                      <ReCAPTCHA  
+                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                        //  sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                         onChange={OnCaptcha}
                       />
                       {cresult ? <CaptchaError /> : null}
                     </div>
-                    <button className="mainBtn border-0 px-5 m-auto d-table ms-lg-auto me-auto me-md-0 " type="submit" >Send Request</button>
+                    <button className="mainBtn border-0 px-5 m-auto d-table ms-lg-auto me-auto me-md-0 " 
+                    type="submit"   >Send Request</button>
                   </div>
                   <div className="form-group">
                     {result ? <Result /> : null}
