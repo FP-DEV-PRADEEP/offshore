@@ -1,4 +1,4 @@
-.mainBtn{font-family:'Gill Sans';font-style:normal;font-weight:500;font-size:16px;line-height:16px;text-transform:uppercase;background:#0081C8;border-radius:3px;display:inline-block;padding:13px 30px;color:#fff;}
+.mainBtn{font-family:'Gill Sans';font-style:normal;font-weight:500;font-size:16px;line-height:16px;text-transform:uppercase;background: linear-gradient(90deg, #036297 -3.45%, #209DE2 102.59%);border-radius:3px;display:inline-block;padding:13px 30px;color:#fff;}
 .mainBtn:hover,.mainBtn.green-btn:hover{background:#ee334e;color:#fff !important;border-color:#ee334e;}
 .mainBtn.border-btn:hover{background:transparent !important;color:#ee334e !important;}
 a.mainBtn.green-btn{font-size:16px;background:#00A651;padding:16px 30px;}
@@ -9,4 +9,5 @@ a.mainBtn.green-btn{font-size:16px;background:#00A651;padding:16px 30px;}
         padding: 12px 25px !important;
     }
 }
-
+.trial { background: linear-gradient(90deg, #0081C8 -26.15%, #EE334E 117.82%); transition: 0.5s;}
+.trial:hover { background: linear-gradient(90deg, #EE334E -26.15%, #0081C8 117.82%); transition: 0.5s;}

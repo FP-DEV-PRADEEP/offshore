@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import jQuery from 'jquery';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom'
+import Contact from '../Pages/Contact';
 
 function Header() {
  
@@ -14,11 +15,12 @@ function Header() {
         jQuery('.navbar-collapse a').on('click', function(){
             jQuery('.navbar-collapse').removeClass("show");     
         });
-      }, []);
+      }, []); 
 
     //  get page name
     const location = useLocation();
     const currentlocation = location.pathname.slice(1)
+
 
     return (
         <>
@@ -57,9 +59,7 @@ function Header() {
                                 </li>
                             </ul>
                         </div>
-
-                        <NavLink className="mainBtn" to="/contact">Get a Quote</NavLink>
-
+                        <NavLink className="mainBtn trial" to="/risk-free-trial" >2 WEEK RISK-FREE TRIAL</NavLink>
                     </div>
                 </div>
 

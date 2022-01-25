@@ -11,7 +11,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 //  helmet js
 import { Helmet } from 'react-helmet';
 
-function Contact() {
+function Freetrial() {
 
   // google captcha function
   const [isCaptchaVerify, CaptchaVerify] = useState(false);
@@ -223,7 +223,7 @@ function Contact() {
                       {cresult ? <CaptchaError /> : null}
                     </div>
                     <button className="mainBtn border-0 px-5 m-auto d-table ms-lg-auto me-auto me-md-0 " 
-                    type="submit"   >Send Request</button>
+                    type="submit"   >Start Free Trial</button>
                   </div>
                   <div className="form-group">
                     {result ? <Result /> : null}
@@ -239,4 +239,4 @@ function Contact() {
     </div>
   </>
 }
-export default Contact;
+export default Freetrial;

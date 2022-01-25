@@ -25,6 +25,7 @@ import { Helmet } from 'react-helmet';
 import Scroll from './elements/Scroll';
 import Hireus from './Pages/Hireus';
 import Notfound from './Pages/Notfound';
+import Freetrial from './Pages/Freetrial';
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
     setTimeout(function () {
         setpreload(false);
     }, 1500); // <-- time in milliseconds
+
+    // chnage btn
+     const [ chnagename, setchnagename] = useState(false);
 
     return (
         <div className="App"   >
@@ -75,6 +79,9 @@ function App() {
                             </Route>
                             <Route path="/hire-developers">
                                 <Hireus />
+                            </Route>
+                            <Route path="/risk-free-trial">
+                                <Freetrial />
                             </Route>
                             <Route path="*">
                                 <Notfound />
