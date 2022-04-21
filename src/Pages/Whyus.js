@@ -9,9 +9,10 @@ function Whyus() {
     return <>
 
         <Helmet>
-            <title>Best Staffing Company India | IT Offshore Solutions</title>
-            <meta name="title" content="Best Staffing Company India |  IT Offshore Solutions" />
-            <meta name="description" content="We Are an Award Winning Software and Web Design and Development Company in India with Expertise in All Services. Which Helps Your Business in Developing Websites. Quick Contact Us info@futureprofilez.com" />
+            <title>Best Offshore IT Staffing Agency | Offshore Company Jaipur</title>
+            <meta name="title" content="Best Offshore IT Staffing Agency | Offshore Company Jaipur" />
+            <meta name="description" content="We Are Best Offshore IT Staffing Agency. Which Helps to develop your Business. Quick Contact us for Offshore Company Jaipur, India" />
+            <meta name="keywords" content="Best Offshore IT Staffing Agency, Offshore Company, offshore staffing Agency, offshore software development company in india, offshore recruitment agencies in india, offshore company list, offshore software testing company in india" />
         </Helmet>
 
         <Pagecaption subtitle={"WHY US"} pagetitle={"Best Offshore IT Staffing Agency"} />

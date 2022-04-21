@@ -6,18 +6,18 @@ import { React } from "react";
 import { useForm } from "react-hook-form";
 import { reqHost, reqContact, reqBearer, gCaptchaSecret } from '../config/Config';
 import axios from 'axios';
-// googe captcha
 import ReCAPTCHA from "react-google-recaptcha";
-//  helmet js
 import { Helmet } from 'react-helmet';
+import { useHistory } from "react-router-dom";
+import Spin from "../elements/Spin";
 
 function Contact() {
 
+  let history = useHistory();
   // google captcha function
   const [isCaptchaVerify, CaptchaVerify] = useState(false);
   const [cToken, setCtoken] = useState('');
   function OnCaptcha(value) {
-    console.log("Captcha value:", value);
     if (value.length > 1) {
       CaptchaVerify(true);
       showCerror(false);
@@ -39,7 +39,7 @@ function Contact() {
     defaultValues: { yes_i_understand: false }
   });
 
-
+  const [ fill, setFill ] = useState(false);
   // ========= get data function =========
   const [userdata, setuserdata] = useState({
     name: "",
@@ -73,6 +73,7 @@ function Contact() {
 
   // api function
   const sendEmail = (formData) => {
+    setFill(true);
     if (isCaptchaVerify) {
       var config = {
         headers: {
@@ -85,11 +86,18 @@ function Contact() {
       axios.get(apiContact, config)
         .then((response) => {
           showresult(true);
+          history.push("/thankyou");
+          setFill(false);
         })
-        .catch((error) => console.table(error));
-
+        .catch((error) =>{ 
+          console.table(error)
+          setFill(false);
+        });
       reset();
-      setTimeout(() => { showresult(false); }, 5000);
+      setTimeout(() => { 
+        showresult(false);
+        setFill(false);
+       }, 5000);
 
     } else {
       showCerror(true);
@@ -113,15 +121,16 @@ function Contact() {
 
   return <>
     <Helmet>
-      <title>Contact US | Hire Dedicated Web Developers India</title>
-      <meta name="title" content="Contact US | Hire Dedicated Web Developers India" />
-      <meta name="description" content="Hire Dedicated Developers From India as virtual employees. We provide you best developers for your requirements which are less in cost and complete tasks on time with expertise Web Development, IoT services, Online IT Services, AR/VR Services, PHP Development, Mobile Development, .Net Development" />
+      <title>Contact Us For Offshore IT Staffing Company In India</title>
+      <meta name="title" content="Contact Us For Offshore IT Staffing Company In India" />
+      <meta name="description" content="We Offshore IT Staffing Company In India provide you best offshore software development for your business which are less in cost. Contact Us now +91-9983333334" />
+      <meta name="keywords" content="Offshore IT Staffing Company In India, top it offshore outsourcing company in india, Top IT Offshore Outsourcing Company, custom offshore software development services, Offshore Software Development Services, offshore software testing company in india, offshore software development company in india" /> 
     </Helmet>
-
     {/* <Pagecaption subtitle="Contact Us" pagetitle="We'd love to hear from you" /> */}
     <div className="contact pt-3">
       <div className="container">
-        <div className="contactfrom">
+        <div className="contactfrom position-relative">
+        { fill ? <Spin /> : ''}
           <div className="row">
             <div className="col-lg-5 mb-3 mb-md-0">
               <div className="rightcontact">
