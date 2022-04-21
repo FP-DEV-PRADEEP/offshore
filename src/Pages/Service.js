@@ -8,12 +8,14 @@ import { Helmet } from 'react-helmet';
 function Service() {
   return <>
     <Helmet>
-      <title>Hire Dedicated Developers | IT Offshore Solutions India</title>
-      <meta name="title" content="Hire Dedicated Developers | IT Offshore Solutions India" />
-      <meta name="description" content="Are you looking for an Expert IT Developer From India? We Provide Complete IT Offshore Solutions For Our Clients. Hire Dedicated Developers as Virtual Employees with Expertise in Custom Web Development, Digital Marketing and More at reasonable prices" />
+      <title>Offshore Software Development Services | Offshore Software Solutions
+</title>
+      <meta name="title" content="Offshore Software Development Services | Offshore Software Solutions" />
+      <meta name="description" content="Are you looking for an Expert Offshore Software Development Services? We Provide IT Offshore Software Solutions For Our Clients. Hire Dedicated with us at best prices." />
+      <meta name="keywords" content="Offshore Software Solutions, Offshore Software Development Services, Offshore It Staffing Services, offshore development services india, offshore recruitment services in india, Offshore Services Jaipur, offshore product development services, custom offshore software development services, offshore programming services in india" />
     </Helmet>
 
-    <Pagecaption subtitle={"Services"} pagetitle={"We Are Nothing Like Your Run-Of-The-Mill Outsourcing IT Agency"} />
+    <Pagecaption subtitle={"Services"} pagetitle={"We Are Nothing Like Your Run-Of-The-Mill  IT Offshore Outsourcing Company"} />
     <div className="py-padding">
       <div className="container">
         <p className="runningtext">Are you looking for a group of certified IT developers for your next big project? Finding an outsourcing company with the requisite level of knowledge and experience is far from easy. However, our track record will undoubtedly be to your liking, as we bring a whole spectrum of advanced IT solutions under one roof, and offer our professional assistance in the most affordable manner. Here’s a glimpse into our world and the various type of services that we offer to our global clients (from the USA, UK, UAE, Australia, and 25+ countries)</p>

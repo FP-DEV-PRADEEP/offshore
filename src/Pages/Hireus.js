@@ -8,14 +8,14 @@ import { reqHost, reqHireDev, reqContact, reqBearer } from '../config/Config';
 import axios from 'axios';
 // googe captcha
 import ReCAPTCHA from "react-google-recaptcha";
-
+import { useHistory } from "react-router-dom";
+import Spin from "../elements/Spin";
 function Hireus() {
-
-    // google captcha function
+    const [ fill, setFill ] = useState(false);
+    let history = useHistory();
     const [isCaptchaVerify, CaptchaVerify] = useState(false);
     const [cToken, setCtoken] = useState('');
     function OnCaptcha(value) {
-        console.log("Captcha value:", value);
         if (value.length > 1) {
             CaptchaVerify(true);
             showCerror(false);
@@ -23,11 +23,8 @@ function Hireus() {
         } else {
             CaptchaVerify(false);
             setCtoken('');
-            // showCerror(true);
         }
     }
-
-    // validation form
     const {
         register,
         handleSubmit,
@@ -36,9 +33,6 @@ function Hireus() {
     } = useForm({
         defaultValues: { yes_i_understand: false }
     });
-
-
-    // ========= get data function =========
     const [userdata, setuserdata] = useState({
         name: "",
         email: "",
@@ -48,8 +42,6 @@ function Hireus() {
         type: "",
         details: ""
     });
-
-
     let nameattr, valueattr;
     let emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const handleInput = (e) => {
@@ -58,12 +50,9 @@ function Hireus() {
         valueattr = e.target.value;
         setuserdata({ ...userdata, [nameattr]: valueattr })
     }
-
-
     //  api targets
-    const apiContact = reqHost + reqContact;
+    const apiContact = reqHost + reqHireDev;
     const bearer = reqBearer;
-
 
     let captchaToken;
     /**
@@ -74,6 +63,7 @@ function Hireus() {
 
     // api function
     const sendEmail = (formData) => {
+        setFill(true);
         if (isCaptchaVerify) {
             var config = {
                 headers: {
@@ -86,12 +76,18 @@ function Hireus() {
             axios.get(apiContact, config)
                 .then((response) => {
                     showresult(true);
+                    history.push("/thankyou");
+                    setFill(false);
+                    reset();
                 })
-                .catch((error) => console.table(error));
-
-            reset();
-            setTimeout(() => { showresult(false); }, 5000);
-
+                .catch((error) => {
+                    setFill(false);
+                    console.table(error)
+                });
+            setTimeout(() => { 
+                showresult(false);
+                setFill(false);
+             }, 5000);
         } else {
             showCerror(true);
         }
@@ -112,12 +108,13 @@ function Hireus() {
     }
     return <>
         <Helmet>
-            <title>Hire Dedicated Website Developer India | Hire Experience PHP Experts</title>
-            <meta name="title" content="Hire Dedicated Website Developer India | Hire Experience PHP Experts" />
-            <meta name="description" content="Are you looking to Hire Dedicated Developers from India? IT Offshore Solution Team Offers Best Dedicated and Certified Developers and Programmers with Experience in Different Technology on Full Time, Part Time, Hourly Basis. Get in touch now" />
+            <title>Why You Should Hire Offshore Dedicated Developers in India in 2022?</title>
+            <meta name="title" content="Why You Should Hire Offshore Dedicated Developers in India in 2022?" />
+            <meta name="description" content="We provide you best custom offshore software development services for your requirements which are less in cost and complete tasks on time with expertise contact us for Hire Offshore Dedicated Developers in India." />
+            <meta name="keywords" content="hire offshore developers, Hire Offshore Dedicated Developers in India, offshore hire services jaipur, Offshore Programming Services, offshore company in india, offshore staffing solutions, offshore web developer," />
         </Helmet>
 
-        <Pagecaption subtitle="Hire Dedicated UI Designer, Developer and SEO Experts" pagetitle="Hire Dedicated Developer" />
+        <Pagecaption subtitle="Hire Dedicated UI Designer, Developer and SEO Experts" pagetitle="Hire Offshore Dedicated Developers" />
         <div className="py-padding">
             <div className="container">
                 <p className="runningtext">As a celebrated name in our industry, we at IT Offshore Solution have offered technical assistance to countless new enterprises with regards to boosting their IT -expertise. allowing them to comprehensively deal with all scales of software  or custom web development requirements of their patrons."</p>
@@ -128,7 +125,8 @@ function Hireus() {
                 <div className="contactfrom">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="form-right">
+                            <div className="form-right position-relative">
+                            { fill ? <Spin /> : ''} 
                                 <h3 className="text-center mb-0 mt-3 mt-lg-0 mb-md-3">Hire Us</h3>
                                 <form onSubmit={handleSubmit(sendEmail)} >
                                     <div className="row" >
@@ -249,15 +247,11 @@ function Hireus() {
                                                 sitekey="6LcljdodAAAAALp2dkas2pXKhmBqUaNT579H7iBR"
                                                 onChange={OnCaptcha}
                                             />
-
                                             {cresult ? <CaptchaError /> : null}
                                         </div>
                                         <button className="mainBtn border-0 px-5 mt-1  ms-md-auto d-table" type="submit" >Send Us</button>
                                     </div>
-
-
                                     <div className="form-group">
-
                                     </div>
                                 </form>
                             </div>

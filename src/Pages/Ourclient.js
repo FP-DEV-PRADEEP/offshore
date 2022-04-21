@@ -31,9 +31,10 @@ function Ourclient() {
     return (
         <>
             <Helmet>
-                <title>Our Clients | IT Offshore Solutions India</title>
-                <meta name="title" content="Our Clients | IT Offshore Solutions India" />
-                <meta name="description" content="We are a Top IT Outsourcing & Software Development Company in India. We have served thousands of satisfied clients from all over the globe in various spectrums successfully." />
+                <title>Offshore Software Development Company | Offshore Staffing Company</title>
+                <meta name="title" content="Offshore Software Development Company | Offshore Staffing Company" />
+                <meta name="description" content="We are an Offshore Software Development Company in india. We have served thousands of Offshore Staffing Company and best IT Offshore Solutions all over the globe for various offshore product development services." />
+                <meta name="keywords" content="Offshore Software Development Company, Offshore Software Outsourcing Company, Offshore Software Testing Company, Offshore Staffing Company, Offshore Software Development Company Jaipur, Offshore Staffing Company in India, offshore software development, offshore software development outsourcing company" />
             </Helmet>
 
 

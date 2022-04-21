@@ -43,7 +43,8 @@ function Clientdetail() {
 
     return <>
 
-        <Pagecaption  subtitle="Our Client"  pagetitle={sitename} parent={true} detailpage={sitename} />
+        <Pagecaption  subtitle="Our Client"  pagetitle={sitename} 
+        parent={true} detailpage={sitename} />
 
         <div className="py-4 py-md-5">
             <div className="container">

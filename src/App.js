@@ -26,6 +26,7 @@ import Scroll from './elements/Scroll';
 import Hireus from './Pages/Hireus';
 import Notfound from './Pages/Notfound';
 import Freetrial from './Pages/Freetrial';
+import Thankyou from './Pages/Thankyou';
 
 function App() {
 
@@ -82,6 +83,9 @@ function App() {
                             </Route>
                             <Route path="/risk-free-trial">
                                 <Freetrial />
+                            </Route>
+                            <Route path="/thankyou"> 
+                                <Thankyou />
                             </Route>
                             <Route path="*">
                                 <Notfound />
