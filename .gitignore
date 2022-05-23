@@ -5,10 +5,11 @@
 /.pnp
 .pnp.js
 /.git
+/New folder
 
 # testing
 /coverage
-
+/.git2
 # production
 /build
 

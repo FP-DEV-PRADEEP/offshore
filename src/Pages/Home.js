@@ -5,6 +5,7 @@ import Slidersolution from "../elements/Slidersolution";
 import { BrowserRouter as Switch, Route, NavLink } from 'react-router-dom';
 import LazyLoad from "react-lazyload";
 import { Helmet } from 'react-helmet';
+import Reviws from "../elements/Reviws";
 
 function Home(props) {
 
@@ -296,6 +297,8 @@ function Home(props) {
 
         {/* newslettre */}
         <Newsletter />
+
+        <Reviws />
     </>
 }
 export default Home; 

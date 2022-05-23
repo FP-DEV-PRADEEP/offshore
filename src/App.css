@@ -123,6 +123,14 @@ button.slick-arrow.slick-disabled{cursor:initial !important;}
 50%{border-color:#ccc;}
 100%{border-color:red;}
 }
+
+.reviwBoc a {
+    display: block;
+    width: 100%;
+}
+.reviwsBoxes {display: flex;max-width: 860px;justify-content: center;margin: auto;margin-top: 40px;}
+.reviwsBoxes .reviwBoc { width: 100%; padding: 15px;flex: 0 0 29.33%;margin: 0 2%;box-shadow: 0 0  11px 1px #0001;border-radius: 10px !important;}
+.reviwBoc img {max-width: 210px;max-height: 90px;margin: auto;display: table;}
 /* responisve */
 @media (max-width:991px){.certified-devs .col-lg-5 img{max-height:380px;}
 .process-sec{display:block;}
@@ -177,6 +185,25 @@ button.slick-arrow.slick-disabled{cursor:initial !important;}
     font-size: 18px;
     line-height: 32px;
 }
+.reviwBoc img {
+    max-width: 210px;
+    max-height: 70px;
+}
+}
+@media( max-width:575px){
+    .reviwsBoxes {
+        display: block;
+        margin-top: 20px;
+    }
+    .reviwBoc {
+        margin-bottom: 20px !important;
+    }
+
+    .reviwsBoxes .reviwBoc {
+        width: 100%;
+        flex: 100%;
+        margin: 0;
+    }
 }
 @media ( max-width:430px){.heroformOuter .captcha-box{max-width:100% !important;max-height:65px;margin-top:-15px;}
 .heroformOuter .captcha-box > div{margin:0 !important;display:table !important;-webkit-transform-origin:0 !important;}
