@@ -5,7 +5,7 @@ import Slidersolution from "../elements/Slidersolution";
 import { BrowserRouter as Switch, Route, NavLink } from 'react-router-dom';
 import LazyLoad from "react-lazyload";
 import { Helmet } from 'react-helmet';
-import Reviws from "../elements/Reviws";
+
 
 function Home(props) {
 
@@ -170,7 +170,7 @@ function Home(props) {
         {/* process */}
         <div className="process blue-bg py-padding position-relative ">
             <LazyLoad once>
-                <img alt="img" src="./img/topwave.png" className="manage-bar img-fluid" alt="images" />
+                <img alt="img" src="./img/topwave.png" className="manage-bar img-fluid"   />
             </LazyLoad>
             <div className="container">
                 <div className="process-sec">
@@ -298,7 +298,6 @@ function Home(props) {
         {/* newslettre */}
         <Newsletter />
 
-        <Reviws />
     </>
 }
 export default Home; 

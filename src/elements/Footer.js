@@ -1,11 +1,14 @@
 import logofooter from '../image/logo-footer.svg';
 import './Footer.css'
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import Reviws from "./Reviws";
+
 function Footer() {
 
 let currentYear = new Date().getFullYear();
     return (
         <>
+        <Reviws />
             <footer>
                 <div className="container">
                     <div className="footerinner d-flex  flex-wrap justify-content-between">
@@ -33,7 +36,8 @@ let currentYear = new Date().getFullYear();
                             </div>
                         </div>
                         <div className="footer-des">
-                            <NavLink to="/"><img alt="IT Offshore Solutions" src={logofooter} className="img-fluid mb-3" alt="" /></NavLink>
+                            <NavLink to="/"><img alt="IT Offshore Solutions" src={logofooter} className="img-fluid mb-3" 
+                            /></NavLink>
                             <p>A OffShore stays ahead of the curve with digital marketing trends. Our success has us leading the pack amongst.</p>
                             <ul className="d-flex flex-wrap justify-content-md-center align-items-center mt-4">
                                 <li>
