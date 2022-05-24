@@ -1,6 +1,6 @@
 export default function Reviws() {
     return <>
-        <div className="reviews pt-md-5 pt-sm-4 pb-md-5 pt-sm-4 " >
+        <div className="reviews pt-3 pb-4 pt-md-5 pb-md-5 " >
             <div className="container" >
                 <div className="sec-title text-center">
                     <h1>Award-<span>Winning</span> Outsourcing IT Company</h1>
@@ -19,7 +19,7 @@ export default function Reviws() {
                     </div>
                     <div className="reviwBoc">
                         <a href="https://www.semfirms.com/profile/it-offshore-solutions/" target="_blank" >
-                            <img src={window.location.origin + '/img/top-digital-marketing-companies.svg'} alt="itOffshoreSolutions" className="img-fluid" />
+                            <img src={window.location.origin + '/img/semf.jpg'} alt="itOffshoreSolutions" className="img-fluid" />
                         </a>
                     </div>
                 </div>
