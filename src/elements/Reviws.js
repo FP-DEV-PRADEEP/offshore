@@ -7,23 +7,28 @@ export default function Reviws() {
                     <p>We are proud to showcase our awards and accolades in the IT industry for software development.</p>
                 </div>
                 <div className="reviwsBoxes">
-                    <div className="reviwBoc">
+                    <div className="reviwBoc"> 
                         <a href="https://goo.gl/maps/pD7UUtACV1u1nRkL8" target="_blank" >
                             <img src={window.location.origin + '/img/digital-marketing-team-google.png'} alt="itOffshoreSolutions" className="img-fluid" />
                         </a>
-                    </div>
-                    <div className="reviwBoc">
+                    </div> 
+                    <div className="reviwBoc"> 
                         <a href="https://www.crowdreviews.com/it-offshore-solutions" target="_blank" >
                             <img src={window.location.origin + '/img/digital-marketing-team-crowdreviews.jpg'} alt="itOffshoreSolutions" className="img-fluid" />
-                        </a>
-                    </div>
-                    <div className="reviwBoc">
+                        </a> 
+                    </div>  
+                    <div className="reviwBoc"> 
                         <a href="https://www.semfirms.com/profile/it-offshore-solutions/" target="_blank" >
                             <img src={window.location.origin + '/img/semf.jpg'} alt="itOffshoreSolutions" className="img-fluid" />
                         </a>
+                    </div>    
+                    <div className="reviwBoc"> 
+                        <a href="https://clutch.co/profile/it-offshore-solutions"  target="_blank" >
+                            <img src={window.location.origin + '/img/clutch.png'} alt="itOffshoreSolutions" className="img-fluid" />
+                        </a> 
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
     </>
 }
