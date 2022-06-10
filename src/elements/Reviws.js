@@ -17,16 +17,17 @@ export default function Reviws() {
                             <img src={window.location.origin + '/img/digital-marketing-team-crowdreviews.jpg'} alt="itOffshoreSolutions" className="img-fluid" />
                         </a> 
                     </div>  
+                    <div className="reviwBoc">  
+                        <a href="https://clutch.co/profile/it-offshore-solutions"  target="_blank" >
+                            <img src={window.location.origin + '/img/clutch.png'} alt="itOffshoreSolutions" className="img-fluid" />
+                        </a> 
+                    </div>
                     <div className="reviwBoc"> 
                         <a href="https://www.semfirms.com/profile/it-offshore-solutions/" target="_blank" >
                             <img src={window.location.origin + '/img/semf.jpg'} alt="itOffshoreSolutions" className="img-fluid" />
                         </a>
                     </div>    
-                    <div className="reviwBoc"> 
-                        <a href="https://clutch.co/profile/it-offshore-solutions"  target="_blank" >
-                            <img src={window.location.origin + '/img/clutch.png'} alt="itOffshoreSolutions" className="img-fluid" />
-                        </a> 
-                    </div>
+                   
                 </div>
             </div>  
         </div>
