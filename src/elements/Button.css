@@ -11,3 +11,20 @@ a.mainBtn.green-btn{font-size:16px;background:#00A651;padding:16px 30px;}
 }
 .trial { background: linear-gradient(90deg, #0081C8 -26.15%, #EE334E 117.82%); transition: 0.5s;}
 .trial:hover { background: linear-gradient(90deg, #EE334E -26.15%, #0081C8 117.82%); transition: 0.5s;}
+
+@media(max-width:480px){
+    .mainBtn {
+        font-size: 11px !important;
+        padding: 12px 13px !important;
+    }
+}
+@media(max-width:400px){
+    .container {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+    .topheader .mainBtn {
+        padding: 12px 15px !important;
+        font-size: 10px !important;
+    }
+}

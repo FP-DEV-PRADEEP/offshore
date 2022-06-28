@@ -1,9 +1,6 @@
 import Pagecaption from "../elements/Pagecaption";
 import Newsletter from "../elements/Newsletter";
-//  helmet js
 import { Helmet } from 'react-helmet';
-
-
 function Privacypolicy() {
   return <>
     <Helmet>

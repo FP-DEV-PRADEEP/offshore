@@ -15,7 +15,19 @@ header{background:rgba(230,240,249,0.5);padding-bottom:25px;}
 .menuBar{padding:15px 40px;background:#FFFFFF;box-shadow:0px 10px 30px rgba(72,5,130,0.05);border-radius:10px;margin-top:5px;}
 .rightIcons li{margin-left:22px;}
 .rightIcons img{width:22px;height:24px;}
-.menuBar a.nav-link{font-family:Gill Sans;font-style:normal;font-weight:500;font-size:16px;line-height:19px;text-transform:uppercase;color:#251A1A;position:relative;min-width:90px;text-align:center;}
+.menuBar a.nav-link {
+    font-family: Gill Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #251A1A;
+    position: relative;
+    min-width: 90px;
+    text-align: center;
+    padding: 0.5rem 6px;
+}
 .menuBar a.nav-link.active:after{width:100%;height:4px;background:#00A651;border-radius:500px 500px 0px 0px;position:absolute;bottom:-15px;left:0;content:"";}
 
 @media ( min-width:1366px){
@@ -27,6 +39,12 @@ header{background:rgba(230,240,249,0.5);padding-bottom:25px;}
 @media ( max-width:1199px){
     .topcontact {
         min-width: 470px;
+    }
+    .menuBar {
+        padding: 15px 18px;
+    }
+    li.nav-item.me-3 {
+        margin-right: 10px !important;
     }
 }
 

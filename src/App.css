@@ -211,3 +211,11 @@ button.slick-arrow.slick-disabled{cursor:initial !important;}
 .notfound h1{font-size:80px;padding-bottom:20px;}
 .notfound p{padding-bottom:11px;}
 .notfound a{color:#333;text-decoration:underline;}
+ 
+@media(max-width:400px){
+    .container {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+}
+ 

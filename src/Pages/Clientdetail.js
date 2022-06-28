@@ -7,9 +7,6 @@ import Pagecaption from "../elements/Pagecaption";
 import Button from '../elements/Button';
 import { Link } from 'react-router-dom';
 import LazyLoad from "react-lazyload";
-
-
-//  helmet js
 import { Helmet } from 'react-helmet';
 
 function Clientdetail() {

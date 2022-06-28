@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as NavLink, Link } from 'react-router-dom';
+import { BrowserRouter as  Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
 //  get page name
@@ -9,7 +9,7 @@ function Pagecaption(props) {
     const parent = props.hasOwnProperty('parent') ? props.parent : false;
 
     const pageurl = props.parent;
-    const detailpage = props.detailpage;
+    const detailpage = props.detailpage; 
 
     return <>
         <div className={`innerbanner position-relative ${props.addiclass}`}  >
