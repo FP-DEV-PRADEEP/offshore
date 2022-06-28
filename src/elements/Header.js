@@ -1,14 +1,10 @@
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from 'react-router-dom';
-import Button from './Button';
 import logo from '../image/logo.svg'
 import './Header.css'
-import { useState, useEffect } from 'react';
-// import { Navbar, Nav, NavDropdown, Form, FormControl, NavItem } from 'react-bootstrap'
+import {  useEffect } from 'react';
 import jQuery from 'jquery';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom'
-import Contact from '../Pages/Contact';
-
 function Header() {
  
     useEffect(() => {
@@ -73,44 +69,29 @@ function Header() {
                             </button>
                             <div className="collapse navbar-collapse " id="navbarSupportedContent" >
                                 <ul className="d-flex flex-wrap">
-                                    <li className="nav-item me-4">
+                                    <li className="nav-item me-3">
                                         <NavLink activeClassName="active" exact className="nav-link" to="/">Home</NavLink>
                                     </li>
-
-                                    <li className="nav-item me-4">
+                                    <li className="nav-item me-3">
                                         <NavLink activeClassName="active" className="nav-link" to="/services" >Services</NavLink>
                                     </li>
-
-                                    <li className="nav-item me-4">
+                                    <li className="nav-item me-3">
                                         <NavLink activeClassName="active" className="nav-link" to="/our-clients">Our Clients</NavLink>
                                     </li>
-                                    <li className="nav-item me-4">
+                                    <li className="nav-item me-3">
                                         <NavLink activeClassName="active" className="nav-link" to="/why-us">Why Us</NavLink>
                                     </li>
-
-                                    <li className="nav-item me-4">
+                                    <li className="nav-item me-3">
                                         <NavLink activeClassName="active" className="nav-link" to="/hire-developers">Hire Developer</NavLink>
-
                                     </li>
-                                    <li className="nav-item me-4">
+                                    <li className="nav-item me-3">
                                         <NavLink activeClassName="active" className="nav-link" to="/contact">Contact</NavLink>
                                     </li>
+                                    <li className="nav-item me-3">
+                                        <a className="nav-link" href="https://itoffshoresolutions.com/blog">Blogs</a>
+                                    </li>
                                 </ul>
-
-
-
-
                             </div>
-{/* 
-                            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                                <Navbar.Collapse id="responsive-navbar-nav">
-                                    <Nav className="me-auto">
-                                        <Nav.Link href="/signup">Signup</Nav.Link>
-                                    </Nav>
-                                </Navbar.Collapse>
-                            </Navbar> */}
                         </nav>
                         <div className="rightIcons">
                             <ul className="d-flex flex-wrap align-items-center">
